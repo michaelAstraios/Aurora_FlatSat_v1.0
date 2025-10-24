@@ -1,0 +1,5412 @@
+ICD56011974-CAN, Revision -, March 2, 2021
+Cage Code 09128
+
+Interface Control Document (ICD)
+With CAN Interface Factory Enabled
+for
+Honeywell Dual Space Magnetometer
+
+WARNING - The enclosed document is export classified as 6E991 for Technology Export Classification. Its export is being
+transmitted under U.S. Export Administration Regulations designation “NLR” (No License Required) and is to be used solely
+by the individual / organization to whom it is addressed.
+Diversion contrary to U.S. export laws and regulations is prohibited.
+
+Prepared by:
+Honeywell International Inc.
+Aerospace-Clearwater (Space)
+13350 U.S. Highway 19 North
+Clearwater, FL 33764-7290
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+Honeywell Proprietary:
+This copyrighted work and all information are the property of Honeywell International Inc., contain trade secrets and may
+not, in whole or in part, be used, duplicated, or disclosed for any purpose without prior written permission of Honeywell
+International Inc. All Rights Reserved
+
+ICD56011974-CAN, Revision -, March 2, 2021
+
+Prepared by
+
+Karol Skrtel
+
+Systems Engineer
+
+2019-09-23
+
+Prepared by
+
+Brian Heyboer
+
+Systems Engineer
+
+2021-03-02
+
+Checked by
+
+Lucky Withanawasam
+
+Systems Engineer
+
+2021-03-02
+
+Approved by
+
+Michael Cagle
+
+Project Engineer
+
+2021-03-02
+
+Total page count = 41
+
+Rev
+-
+
+EAR controlled data
+
+Description
+Initial Release per EO342013
+
+Date [y-m-d]
+2021-03-10 kh/BH
+
+i
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+Document Revision Log
+
+ICD56011974-CAN, Revision -, March 2, 2021
+
+Contents
+INTRODUCTION
+
+1
+
+1.1
+
+Purpose and Scope
+
+1
+
+1.2
+
+Precedence
+
+1
+
+2
+
+DOCUMENTS
+
+1
+
+2.1
+3
+3.1
+
+Reference Documents
+
+1
+
+MAG INTERFACES
+
+1
+
+General
+
+1
+
+3.1.1
+
+Design Description
+
+1
+
+3.1.2
+
+Interface Description
+
+1
+
+3.1.3
+
+Performance
+
+2
+
+MAG Mechanical Interface
+
+2
+
+3.2.1
+
+MAG Physical Envelope Description
+
+2
+
+3.2.2
+
+Mass Properties
+
+4
+
+3.2.2.1
+
+Weight
+
+4
+
+3.2.2.2
+
+Volume
+
+4
+
+3.2.2.3
+
+Center of gravity
+
+4
+
+3.2.2.4
+
+Moment of inertia
+
+4
+
+3.2.2.5
+
+Loads
+
+5
+
+3.2.3
+
+Axis Definition
+
+5
+
+3.2.4
+
+Mounting Interface
+
+5
+
+3.2.4.1
+
+Unit Mount Mating Surface
+
+5
+
+3.2.4.2
+
+Mounting
+
+6
+
+3.2.4.2.1
+
+Mounting Torque
+
+6
+
+3.2.4.2.2
+
+Alignment
+
+6
+
+3.2.5
+
+Bonding
+
+6
+
+3.2.6
+
+Surface Finish
+
+6
+
+3.2.6.1
+
+Surface Roughness
+
+6
+
+3.2.6.2
+
+Surface Treatment
+
+7
+
+3.3
+
+Environmental
+
+7
+
+3.3.1
+
+Thermal Interface
+
+7
+
+3.3.2
+
+Shock Environment
+
+7
+
+3.3.3
+
+Vibration Environment
+
+7
+
+3.3.4
+
+Humidity Environment
+
+8
+
+3.2
+
+EAR controlled data
+
+ii
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+1
+
+3.3.5
+
+Pressure Environment
+
+8
+
+3.3.6
+
+Radiation Environment
+
+8
+
+3.3.7
+
+Electromagnetic Environment-
+
+9
+
+Electrical
+
+9
+
+3.4.1
+
+Top Level System Electrical Interface
+
+9
+
+3.4.2
+
+MAG J01/J02 Connector Definition
+
+10
+
+3.4.2.1
+
+Connector Type
+
+10
+
+3.4.2.2
+
+Connector Hardware
+
+10
+
+Jackpost
+
+10
+
+3.4.2.3
+
+Connector Location
+
+10
+
+3.4.2.4
+
+Connector Pin Out Definition
+
+10
+
+3.4.3
+
+Electrical Interfaces
+
+11
+
+3.4.3.1
+
+Signal Definition
+
+11
+
+3.4.3.2
+
+Power Interface
+
+11
+
+3.4.3.2.1
+
+Power Isolation
+
+13
+
+Flight Signal Interface
+
+13
+
+3.4.3.3.1
+
+Communication bus input/output signals
+
+13
+
+3.4.3.3.2
+
+TERM_H & L
+
+13
+
+Test Signal Characteristics
+
+13
+
+Frequency Plan
+
+13
+
+Power on and Mode Sequencing
+
+13
+
+3.5.1
+
+Init Mode
+
+14
+
+3.5.2
+
+Service Mode
+
+14
+
+3.5.3
+
+Operational Mode
+
+14
+
+3.5.4
+
+Watchdog Timer Reset
+
+14
+
+Command and Data Interface
+
+14
+
+3.6.1
+
+RS422/485 Interface Description
+
+14
+
+3.6.2
+
+CAN Interface Description
+
+14
+
+Message Format
+
+14
+
+3.6.2.1.1
+
+CAN ID 11-bit Definition
+
+15
+
+3.6.2.1.2
+
+Control Byte Definition
+
+15
+
+3.6.2.2
+
+Data Flow
+
+15
+
+3.6.2.3
+
+Supported Functions
+
+16
+
+3.6.2.4
+
+Message Handling
+
+16
+
+Message Byte Sequence
+
+19
+
+Message Examples
+
+19
+
+3.4
+
+3.4.2.2.1
+
+3.4.3.3
+
+3.4.3.4
+3.4.4
+3.5
+
+3.6
+
+3.6.2.1
+
+3.6.2.4.1
+3.6.2.5
+
+EAR controlled data
+
+iii
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+
+3.6.2.5.1
+
+Read MAGDATA
+
+19
+
+3.6.2.5.2
+
+Read MAGTEMP
+
+20
+
+3.6.3
+
+Memory Area Map
+
+20
+
+3.6.3.1
+
+Memory Area Access
+
+21
+
+3.6.3.2
+
+Memory Sector: RAM
+
+21
+
+3.6.3.2.1
+
+RAM Memory Buffer
+
+21
+
+3.6.3.2.2
+
+Status/Config Registers
+
+21
+
+3.6.3.2.2.1
+
+Memory Status Register
+
+21
+
+3.6.3.2.2.2
+
+Configuration Register (Memory Key Enable)
+
+22
+
+3.6.3.3
+
+Memory Sector: EEPROM
+
+22
+
+3.6.3.3.1
+
+EEPROM Read Mechanism
+
+22
+
+3.6.3.3.2
+
+EEPROM Write Mechanism
+
+23
+
+3.6.3.3.3
+
+Updating Critical EEPROM Data
+
+23
+
+3.6.3.4
+
+FACTORY KEY Enabling
+
+24
+
+3.6.3.5
+
+FACTORYPROG KEY Enabling
+
+24
+
+3.6.3.6
+
+Memory Sector: Flash Memory
+
+24
+
+4
+4.1
+5
+5.1
+
+NOTES
+
+24
+
+Abbreviations and Acronyms
+Appendix A: Message Data Definition
+
+24
+25
+
+OBC Command Messages
+
+25
+
+5.1.1
+
+MEMWRITE
+
+25
+
+5.1.2
+
+MEMCMD
+
+25
+
+5.1.3
+
+OPMODE
+
+26
+
+5.1.4
+
+TRIM (FACTORY USE ONLY)
+
+26
+
+5.2
+
+OBC Data Acquisition Messages
+
+26
+
+5.2.1
+
+MAGDATA
+
+26
+
+5.2.2
+
+MAGTEMP
+
+26
+
+5.2.3
+
+MAGID
+
+26
+
+5.2.4
+
+MEMREAD
+
+26
+
+5.2.5
+
+MAGRAW (FACTORY USE ONLY)
+
+26
+
+5.2.6
+
+MAGSETRST (FACTORY USE ONLY)
+
+26
+
+MAG Response Messages
+
+26
+
+MAG Status Words
+
+26
+
+5.3.1.1
+
+Magnetometer STATUS “STS”
+
+26
+
+5.3.1.2
+
+Magnetometer Sensors STATUS “Msts”
+
+26
+
+MAGDATA
+
+27
+
+5.3
+5.3.1
+
+5.3.2
+EAR controlled data
+
+iv
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+
+5.3.3
+
+MAGTEMP
+
+28
+
+5.3.4
+
+MAGID
+
+28
+
+5.3.5
+
+MEMDATA
+
+29
+
+6
+
+Appendix B: EEPROM Map
+
+29
+
+7
+
+Appendix C: Error Reporting Capability
+
+31
+
+7.1
+
+CRC Error
+
+31
+
+7.1.1
+
+Calibration Data Validity Memory Protection
+
+31
+
+7.1.2
+
+Embedded Software FLASH Code Validity Memory Protection
+
+31
+
+7.2
+
+Communication Data Protection, RS422/485
+
+32
+
+7.3
+
+Magnetic Sensors Saturation Status
+
+32
+
+7.4
+
+EEPROM Parameter Read Error
+
+33
+
+7.5
+
+Bad Command Parameter
+
+33
+
+8
+
+EAR controlled data
+
+Appendix D: Internal Measurement Timing
+
+v
+
+34
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+
+ICD56011974-CAN, Revision -, March 2, 2021
+1 INTRODUCTION
+1.1 Purpose and Scope
+This document defines the standard flight functional interface definitions for the Honeywell Space Magnetometer,
+hereinafter referred to as the MAG.
+The purpose of this document is to identify all of the mechanical, electrical and command interfaces for the MAG.
+The MAG can be factory configured with different interfaces. This ICD is applicable only to the 56011974-003
+model, with the CAN interface factory enabled.
+1.2 Precedence
+The Magnetometer System Requirement Document, SYSRD56011974 will take precedence over the ICD,
+however every attempt to keep these two documents aligned will be made.
+2 DOCUMENTS
+2.1 Reference Documents
+Document Title
+
+Doc Rev
+
+Date
+
+SYSRD56011974
+
+System Requirements Document for the Space
+Magnetometer
+
+-
+
+April 4, 2019
+
+56011974
+
+Magnetometer Installation Interface Control
+Drawing
+
+A
+
+April 23, 2020
+
+3 MAG INTERFACES
+3.1 General
+3.1.1 Design Description
+Two Magnetometer Printed Board Assemblies (PBAs) are contained in one package in order to provide redundant
+functionality. Both MAG PBAs are identical with the exception of unique compensation terms loaded into nonvolatile memory after factory calibration.
+Each PBA contains the 3 magnetic sensors to provide three axes measurement of the magnetic field, temperature
+monitor, set/reset circuit to invert the magnetic sensor output, conditioning circuits for the temperature and
+magnetic sensor outputs, 12 bit analog to digital converter, trim circuit, 8 MHz crystal, Atmel microcontroller
+(ATMegaS64M1), and the Controller Area Network (CAN) transceiver.
+The device is set at the factory to support the CAN interface only.
+The magnetometer sensors provide three analog signals proportional to the three components of the Earth’s
+magnetic field vector projected onto an orthogonal frame. The analog signals are sent to a 12-bit Analog to Digital
+(A/D) converter then read by the ATMEL’s microcontroller (ATMegaS64M1). The alignment and thermally
+compensated data are sent out through the Standard CAN communication bus.
+The maximum magnetic field that the magnetometer can be exposed to without leading to any irreversible
+degradation, and without impacting its performance, is less than 40 Gauss for both ON and OFF. Variation in
+magnetic properties of the constituent components of the MAG will lead to variations in the exposure field limit.
+It is best to avoid exposure to magnetic fields as much as possible.
+3.1.2 Interface Description
+External Interfaces from the MAG to the Spacecraft (S/C) include a mechanical attachment and two identical
+electrical interfaces.
+
+EAR controlled data
+
+1
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+Document Number
+
+ICD56011974-CAN, Revision -, March 2, 2021
+Both electrical interfaces are identical to each other, and connect to identical Magnetometer Electronic PBAs. The
+MAG PBA's are powered individually during flight operation. There is no hardware distinction between the
+PBA's. Differences exist only in the physical location within the MAG package and the calibration coefficients
+loaded during the factory calibration process.
+The MAG is installed to the S/C base using four threaded screws installed through holes in the mounting flanges.
+Use of mounting screws manufactured from a non-magnetic material, such as titanium, is recommended. Screws
+with ferrous content should be avoided for best performance and repeatability.
+3.1.3 Performance
+The performance parameters are specified in SysRD56011974 and summarized in Table 3.1.3-1 below. The
+MAG will operate to the full performance requirements in the range 0.2 to 0.75 Gauss. The MAG will function in
+the ranges of 0.1 to 0.2 Gauss and 0.75 to 0.8 Gauss, but may do so with degraded performance.
+Parameter
+
+BoL Limit
+
+EoL Limit
+
+Units
+
+On-axis null field error
+
+±1.95
+
+±2.25
+
+mG
+
+On-axis Scale Factor Error
+
+±3.25
+
+±3.75
+
+% of Applied
+Field
+
+Total Magnitude null field error
+
+±3.4
+
+±4.25
+
+mG
+
+Total Magnitude Scale Factor Error
+
+±6.0
+
+±6.5
+
+% of Applied
+Field
+
+Angle error
+
+±2,25
+
+±3.4
+
+deg
+
+3.2 MAG Mechanical Interface
+The mechanical design of the MAG is compliant with the requirements of the SysRD and defined in the
+Installation - Interface Control Drawing, 56011974.
+3.2.1 MAG Physical Envelope Description
+The MAG Flight Assembly Installation Drawing, 56011974, defines the unit mechanical form factor. Figure
+3.2.1-1 shows an isometric view and Figure 3.2.1-2 shows an orthographic projection of the unit with the
+dimensions for the maximum outside envelope. All dimensions are in millimeters.
+
+EAR controlled data
+
+2
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+Table 3.1.3-1 MAG Performance Summary
+
+Figure 3.2.1-1 MAG Isometric View
+
+EAR controlled data
+
+3
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+
+Figure 3.2.1-2 MAG Physical Envelope
+3.2.2 Mass Properties
+The MAG Installation - Interface Control Drawing defines the nominal calculated mass properties (weight, center
+of gravity, moments of inertia) of the magnetometer.
+3.2.2.1 Weight
+The MAG nominal weight is 302 grams (10.7 oz). The MAG maximum weight is less than 310 grams (10.9 oz).
+3.2.2.2 Volume
+The unit volume is 235.2 cc (14.35 in3) or less. The surface area is 310.1 sq. cm (48.1 sq. in) or less.
+3.2.2.3 Center of gravity
+The unit center of gravity is defined by the MAG Installation Drawing.
+3.2.2.4 Moment of inertia
+The Moment of Inertia is defined by the MAG Installation Drawing.
+EAR controlled data
+
+4
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+
+ICD56011974-CAN, Revision -, March 2, 2021
+3.2.2.5 Loads
+The MAG design meets all performance requirements for operations in the load conditions as summarized in
+Sections 3.3.2 and 3.3.3.
+3.2.3 Axis Definition
+
+Figure 3.2.3.1-1 Reference Frame
+3.2.4 Mounting Interface
+The mechanical design of the MAG is defined in the Installation - Interface Control Drawing, 56011974.
+3.2.4.1 Unit Mount Mating Surface
+The unit's mounting surface flatness is less or equal to 100 mm (0.004 inch). This coplanar requirement
+contributes to the alignment accuracy and alignment stability and is included in the performance error allowance.
+The mounting surface should be sufficiently conductive to allow adequate electrical bonding with the MAG flush
+chassis bottom. The MAG will provide a conductive path to the mounting surface by direct contact with the
+EAR controlled data
+
+5
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+The Magnetometer data output is defined per the coordinate axis shown in Figure 3.2.3.1-1. The Z axis is normal
+to the mounting plane, Y is normal to the rear side opposite of the connectors and X is the vector defined by the
+right-hand rule of Y into Z. The factory calibration process aligns the unit output axes to the mount coordinate
+axes.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+bottom of the MAG. The use of a cold plate or thermal pad is not recommended nor required in a typical satellite
+installation to maintain the specified temperature range of the MAG. Any instability of the mating surface directly
+translates to instability in the MAG measurements and is not considered in establishing the MAG performance
+specification.
+3.2.4.2 Mounting
+The MAG design allows for installation into a structural assembly that mounts to the bottom of the MAG.
+The MAG Installation / Interface Control Drawing, 56011974 defines the dimensions, position and tolerances of
+the 4 mounting holes.
+3.2.4.2.1 Mounting Torque
+Honeywell recommends mounting of the MAG with four MJ3 x 0.5 – 4h6h non-magnetic socket head bolts.
+Mounting screws installation torque is 1.0 Nm +/- 0.1Nm. The MAG mounting hole pattern is per the MAG
+Installation Drawing. Mounting screws are not supplied with the MAG.
+
+The clearance hole in the foot is 3.4 +/-0.1 mm. Basic size calculations of metric bolt threads and tolerance
+calculations of different tolerance classes are to be done according to ISO 965-1:1998 and ISO 965-2:1998
+standards. Using the minimum bolt major diameter of 2.874 mm and maximum hole tolerance of 3.5 mm (nominal
+of 3.4 mm), allows for a maximum of 0.3 deg of static alignment difference between mount to mount in the X-Y
+plane. Another method of achieving better alignment (0.15°) is by using a protruding straight edge parallel to the
+back side (side opposite of the connector) that is within 90° +/- 0.1° of the center line of the bolting holes.
+Reference figure below. The customer can physically align the MAG to the spacecraft axes or measure mounting
+misalignment with respect to the S/C and compensating for it in the S/C software.
+
+Figure 3.2.4.2.2-1 MAG Mounting Interface
+3.2.5 Bonding
+All conductive mechanical assembly elements are electrically bonded to chassis ground. There is no need for a
+provision to connect a separate grounding cable, providing the mounting surface provides S/C ground..
+3.2.6 Surface Finish
+3.2.6.1 Surface Roughness
+
+EAR controlled data
+
+6
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+3.2.4.2.2 Alignment
+
+ICD56011974-CAN, Revision -, March 2, 2021
+The maximum surface roughness for the machined assembly is N7, 1.6 µm (63 micro in) RA or equivalent of 64
+micro in RMS or better. Mounting surface roughness for the machined assembly is N6, 0.8 µm (32 micro in) RA
+or equivalent of 32.5 micro in RMS or better.
+3.2.6.2 Surface Treatment
+Aluminum surface treatment is chromate per MIL-C-5541, Class 3 to reduce any oxidation of the aluminum.
+MIL-C-5541. Class 3 chromate coating is an intended corrosion preventative film for electrical and electronic
+applications where low resistance contacts are required. Class 3 coating is applicable for electrical bonding
+applications per MIL-B-5087.
+3.3 Environmental
+The MAG design will meet all performance requirements for operations in the environment conditions as
+described below.
+3.3.1 Thermal Interface
+Table 3.3.1-I: MAG Operating Temperature Ranges
+Acceptance
+Qualification
+Unit Survival
+Temperatures
+Temperatures
+Temperatures
+‐25° C to 45° C
+‐25° C to 55° C
+‐30° C to 70° C
+Table 3.3.1-II Thermal Interfaces and Boundary Definition
+Thermal Interfaces and Boundary definition
+Parameter Units Value Note
+Units
+Conductive Boundary Temperature (CBT)
+°C
+Conductive Heat Transfer Coefficient
+W/°C per bolt
+Maximum Temperature Change Rate
+°C/minute
+Radiative Boundary Equivalent Temperature (RBT)
+°C
+Radiative Boundary Equivalent Emissivity (RBE)
+NONE
+Radiative Boundary View Factor (VF)
+NONE
+
+Value
+‐25 to +45
+0.7
+2
+34
+0.1
+1
+
+3.3.2 Shock Environment
+The MAG is designed and tested to the shock requirements of Table 3.3.2-I.
+Table 3.3.2-I: MAG Shock Limits
+Frequency (Hz)
+Shock Level (g)
+100.00
+20
+2000.00
+2000
+10000.00
+2000
+3.3.3 Vibration Environment
+The MAG is designed and tested to the random vibration requirements of Table 3.3.3-I.
+Table 3.3.3-I: MAG Random Vibration Limits
+In plane levels:
+
+EAR controlled data
+
+7
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+Thermal interface is designed and tested to the thermal requirements of Tables 3.3.1-I and 3.3.1-II.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+
+R500
+Frequency (Hz)
+20‐80
+80‐500
+500‐2000
+Overall Level
+Duration
+
+PSD (g2/Hz)
+Qualification
+Acceptance
++ 4 dB/oct
++ 4 dB/oct
+0.1
+0.045
+‐5 dB/oct
+‐5 dB/oct
+9.5 g (rms)
+6.3 g (rms)
+180s
+60s
+
+The MAG is tested to the sine vibration requirements of Table 3.3.2-II, but is not intended to be subjected to longterm sinusoidal vibration.
+Table 3.3.3-II: MAG Sinusoidal Vibration Test Levels
+Frequency (Hz)
+Sine Vibration (g)
+5‐100
+20
+3.3.4 Humidity Environment
+The MAG is designed to withstand a relative humidity of 65% maximum during testing and transport. Long term
+operation is intended for a space environment.
+3.3.5 Pressure Environment
+The MAG is designed to operatte from atmospheric to space pressure without arcing or corona and can withstand,
+without degradation, a de-pressurization rate of 70 hPa/s maximum and a Delta-P of 150 hPa over ambient.
+3.3.6 Radiation Environment
+The MAG is designed to meet all performance requirements when operating in the natural space radiation
+environment(s) defined in Table 3.3.6-I. The spacecraft structure is assumed to provide 2mm equivalent Al
+shielding isotropic or greater.
+Table 3.3.6-I: Natural Space Radiation Environment for unit design
+Parameter
+
+Mission Scenario
+
+Mission type:
+
+Low earth orbit (LEO), polar
+
+Orbital parameters:
+
+1200km circular x 87.9°
+
+Mission life:
+
+6 years
+Dose calculations
+
+Trapped electron fluence mode:
+EAR controlled data
+
+AE8, solar maximum, average
+8
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+Out of plane Levels:
+PSD (g2/Hz)
+R400
+Frequency (Hz)
+Qualification
+Acceptance
+20‐80
++ 9 dB/oct
++ 9 dB/oct
+80‐250
+1.0
+0.45
+250‐2000
+‐8 dB/oct
+‐8 dB/oct
+Overall Level
+18.3 g (rms)
+12.2 g (rms)
+Duration
+180s
+60s
+
+ICD56011974-CAN, Revision -, March 2, 2021
+Trapped proton fluence model:
+
+AP8, solar minimum, average
+
+Solar proton fluence model:
+
+ESP-PSYCHIC, 90% confidence
+
+SEE calculations
+Galactic cosmic ray flux model:
+
+CREME96, solar minimum
+
+Solar flare flux model, average:
+
+CREME96, worst week
+
+Solar flare flux model, peak:
+
+CREME96, peak 5-minutes
+
+Trapped proton flux model:
+
+AP8, solar minimum, peak
+
+Spacecraft charging calculations
+Trapped electron flux model:
+
+AE9, Monte-Carlo, 100
+histories, 90% confidence
+
+The MAG is designed for robustness in EMI radiation and susceptibility and has been tested to tailored
+requirements of MIL-STD-464C and MIL-STD-461F. Specific tests and tailored limits are summarized below.
+Testing was performed with unshielded cables.
+CAN configuration EMI test limits
+Method
+
+Standard
+
+Test Level
+
+Bonding
+
+Mil-Std 464C
+
+2.5 milliohms
+
+CE102
+
+Mil-Std 461F
+
+CS101
+
+Mil-Std 461F
+
+CS114
+
+Mil-Std 461F
+
+Honeywell Tailored
+CE102-1, Basic Curve +10 dB
+Honeywell Tailored
+CS101-1, Curve #2 -20 dB
+CS114, Curve 3 Tailored
+(3 dB down between 10 MHz and 13 MHz and 4 dB down
+between 30 MHz and 35 MHz)
+Honeywell Tailored
+0.5 Apk
+Honeywell Tailored
+Imax = 0.708 Apk
+
+CS115
+
+Mil-Std 461F
+
+CS116
+
+Mil-Std 461F
+
+RE102
+
+Mil-Std 461F
+
+RE102-3, Fixed Wing Internal ൒25 meters Nose to Tail
+limits
+
+RS103
+
+Mil-Std 461F
+
+20 V/m 2 MHz to 40 GHz
+
+3.4 Electrical
+3.4.1 Top Level System Electrical Interface
+The top-level system electrical input/output (I/O) interfaces are shown in Figure 3.4.1-1
+EAR controlled data
+
+9
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+3.3.7 Electromagnetic Environment-
+
+Figure 3.4.1-1 Connection Diagram
+3.4.2 MAG J01/J02 Connector Definition
+Micro-D connectors provide electrical interface. There are 6 non-flight test signals that are intended for factory
+test use only and should not have wires connected during flight operation. Proper MAG operation and EMI
+characteristics are not guaranteed if S/C cable connections are made to the factory test signals.
+Both J01 and J02 are identical connectors and have identical physical, electrical, and mechanical properties. The
+pin out and signal definition are identical.
+3.4.2.1 Connector Type
+The J01 and J02 connecters are 15 position micro D socket shell connectors, MDA series corrosion resistant
+electro-deposited nickel plated (IAW SAE-AMS-2404, Class 4) on aluminum alloy type 6061.
+The user supplied mating connectors require similar metal shells in order to prevent corrosion.
+3.4.2.2 Connector Hardware
+The unit connectors J01 & J02 are 15 pin connectors.
+Any connector covers used on J01 & J02 are non-flight items.
+3.4.2.2.1 Jackpost
+Connector jackposts are per MIL-DTL-83513 for rear panel mount connectors.
+3.4.2.3 Connector Location
+The prime and redundant connectors are found on the side of the MAG as shown in Figure 3.5.1-1. J01, associated
+with the board closest to the cover, is designated the prime or nominal connector and J02, associated with the
+board closest to the mounting surface, is designated the redundant connector.
+3.4.2.4 Connector Pin Out Definition
+EAR controlled data
+
+10
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+
+ICD56011974-CAN, Revision -, March 2, 2021
+The keying, power and signal pin out is as depicted in Figure 3.4.2.4-1.
+The Figure 3.5.2.4-1 show the view of connector pin outs looking into connector face.
+
+Figure 3.4.2.4-1 J01/J02 Connector Pin Out
+3.4.3 Electrical Interfaces
+3.4.3.1 Signal Definition
+The MAG will accept +5VDC power from the S/C secondary power subsystem on one power bus over two pins
+(one for power and one for power return).
+Table 3.4.3-1 J01/J02 Power Connector Pin Assignments
+Pin #
+
+Signal Name
+
+Signal Description
+
+1
+
+MAG_5V
+
+5V Power Input
+
+2
+
+MAG_FLIP_Y_TEST
+
+Internal factory use only. No flight connection.
+
+3
+
+MAG_FLIP_COM_TEST
+
+Internal factory use only. No flight connection.
+
+4
+
+P3V3_A_TEST
+
+Internal factory use only. No flight connection.
+
+5
+
+P3V3_D_TEST
+
+Internal factory use only. No flight connection.
+
+6
+
+TERM_H
+
+Termination top resistor, 120 ohm
+
+7
+
+RS_OUT_H
+
+Reserved for RS422/485. No flight connection.
+
+8
+
+CAN_RS_IN_H
+
+CAN bus line for high level input/output
+
+9
+
+MAG_5V_RTN
+
+5V Power Return
+
+10
+
+MAG_FLIP_X_TEST
+
+Internal factory use only. No flight connection.
+
+11
+
+MAG_FLIP_Z_TEST
+
+Internal factory use only. No flight connection..
+
+12
+
+CHASSIS_GND
+
+Chassis ground
+
+13
+
+TERM_L
+
+Termination bottom resistor, 120 ohm
+
+14
+
+RS_OUT_L
+
+Reserved for RS422/485. No flight connection.
+
+15
+
+CAN_RS_IN_L
+
+CAN bus line for low level input/output
+
+3.4.3.2 Power Interface
+The power interface and expected input voltage performance criteria are defined in Table 3.4.3-2.
+A minimum 200 ms time delay is recommended from power off to subsequent power on to insure proper unit
+reset.
+
+EAR controlled data
+
+11
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+The Table 3.5.3-1 defines the J01/J02 connector pin assignments.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+The nominal steady state BoL power for the unit with a single connection powered is 210mW and the maximum
+EoL power, which occurs at power-on, is 475mW. Unit to unit variation in nominal power of up to ±20mW has
+been observed.
+Table 3.4.3-2 Power Interface voltage
+Description
+
+Value
+
+Units
+
+5
+
+V
+
+4.5 to 5.5
+
+V
+
+Minimum Survival Voltage
+
+-0.5
+
+V
+
+Minimum Input Voltage Rise Time
+
+606
+
+µs
+
+Maximum Input Voltage Rise Time
+
+2558
+
+µs
+
+50 mVp-p
+
+V
+
+100
+
+µF
+
+Nominal input voltage
+Full performance input voltage range
+
+Maximum Allowed Ripple on Input Voltage
+Maximum Input Capacitance
+
+Typical power-on inrush at 5V input is depicted in the figures below.
+
+Figure 3.4.3-4 CAN Typical Input Power Inrush (1 sec/div).
+
+EAR controlled data
+
+12
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+Note that Figures 3.4.3-2 and 3.4.3-3 are not applicable to the CAN interface unit and are not included in the CAN
+document version.
+
+Figure 3.4.3-5 CAN Typical Input Power Inrush (1msec/div).
+3.4.3.2.1 Power Isolation
+The primary power lines are isolated from the unit structure/chassis and from secondary ground. The minimum
+resistance between any power line and the chassis is 1 mega-ohm.
+3.4.3.3 Flight Signal Interface
+3.4.3.3.1 Communication bus input/output signals
+The CAN bus line for high level input/output, CAN_RS_IN_H, goes to the CAN transceiver.
+The CAN bus line for low level input/output, CAN_RS_IN_L, goes to the CAN transceiver.
+3.4.3.3.2 TERM_H & L
+These two connections allow for termination of the communication bus with an internal 120 ohm resistor, .25W,
+1% tolerance, if required by the S/C bus architecture.
+3.4.3.4 Test Signal Characteristics
+This section is for Factory Test Only.
+Signals labeled "Factory Test Only" are reserved for factory use and are not intended for connection to any
+satellite interface.
+3.4.4 Frequency Plan
+The following frequencies are used in the magnetometer design:
+- Crystal Oscillator 8MHz @ 3.3V
+- PWM 7.8125 kHz
+3.5 Power on and Mode Sequencing
+EAR controlled data
+
+13
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+
+ICD56011974-CAN, Revision -, March 2, 2021
+The following section specifies the different modes of operation, including transition requirements to each mode
+and the unique functional requirements that are executed in each mode.
+3.5.1 Init Mode
+The MAG autonomously transitions to the Init Mode upon application of input power and initializes the selected
+interface in accordance with the interface mode and slave address stored in EEPROM.
+During Init Mode, the three redundant values of the MAG INTERFACE_SELECT parameter in EEPROM are
+compared and any single mismatch is replaced with the value contained in the other two. In the event no two
+values match, the MAG defaults to RS-485 mode.
+During Init Mode, the three redundant values of the MAG SLAVE_ADDRESS parameter in EEPROM are
+compared and any single mismatch is replaced with the value contained in the other two. In the event no two
+values match, the MAG defaults to slave address 0x09.
+3.5.2 Service Mode
+The MAG autonomously transitions to the Service Mode upon completion of the Init Mode..
+
+3.5.3 Operational Mode
+The MAG transitions to the Operational Mode upon receipt of a valid OPMODE command, as specified in Para
+3.6 and subparagraphs applicable to the selected interface, providing the User App CRC is valid, as specified in
+para 7.1.2. In the event a CRC mismatch is detected, the MAG remains in service mode.
+The Operational Mode provides the full functionality of the MAG using the selected flight interface protocols, as
+specified in Para 3.6 and subparagraphs applicable to the Operational Mode and selected interface.
+3.5.4 Watchdog Timer Reset
+The MAG is equipped with a watchdog timer which resets the unit in the event of an unrecoverable software error.
+Upon watchdog timer reset, the MAG re-enters Init Mode and performs a normal power-on mode transition,
+including the requirement for an OPMODE command to enter Operational Mode.
+3.6 Command and Data Interface
+3.6.1 RS422/485 Interface Description
+The RS-422/485 interface is not applicable to this version of the ICD..
+3.6.2 CAN Interface Description
+The CAN communication protocol is a carrier-sense, multiple-access protocol with collision detection and
+arbitration on message priority. ISO-11898:2003 defines an 11-bit identifier “Standard CAN” and a 29-bit
+identifier “Extended CAN”. The MAG CAN Interface supports only Standard CAN with 11-bit identifier.
+CONTROL
+FIELD
+
+ARBITRATION FIELD
+S
+O
+F
+
+11‐bit
+Identifier
+
+R I
+r
+T D
+0
+R E
+
+4‐bit
+DLC
+
+DATA FIELD
+
+CRC
+FIELD
+
+0...7 Bytes Data
+
+16‐bit
+CRC
+
+ACK
+FIELD
+
+END of FRAME
+FIELD
+
+ACK
+
+EOF
+
+IFS
+
+Figure 3.6.2-1 Standard CAN Message Format
+3.6.2.1 Message Format
+Messages are formatted using proprietary CAN protocol. Only a single master on the bus is supported.
+Communication is possible only between master and slave. Communication between slaves is not supported.
+EAR controlled data
+
+14
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+The Service Mode provides the functionality of reading/writing of memory areas using the active flight interface,
+as specified in Para 3.6 and subparagraphs applicable to the Service Mode and selected interface.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+ID E ‐ 11b
+FunctionID
+SlaveID
+5b
+5b
+
+M
+1
+b
+
+D LC
+4b
+
+RTR
+1b
+
+Control
+0
+S E ‐ ‐ TxID
+
+D ata
+N‐1
+Byte N‐2
+
+1
+Byte 0
+
+TxC
+
+Figure 3.6.2.1-1 CAN Message Frame Definition
+3.6.2.1.1 CAN ID 11-bit Definition
+Table 3.6.2.1.1-1 CAN ID 11-bit Definition
+bits
+
+10
+
+9
+
+8
+
+name
+
+Function Address
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+0
+
+Slave Address
+
+Function Address
+
+0-31
+
+Function (Service) Address.
+
+Slave Address
+
+0-31
+
+Slave Address
+
+Mb
+
+0
+
+The source of transfer is slave
+
+1
+
+The source of transfer is master
+
+Mb
+
+3.6.2.1.2 Control Byte Definition
+Table 3.6.2.1.2-1 Control Byte Definition
+7
+
+6
+
+5
+
+4
+
+name
+
+S
+
+E
+
+User1
+
+User2
+
+S
+
+3
+
+2
+
+1
+
+TxID
+
+0
+TxC
+
+0
+
+If E = ‘0’ then this is a middle frame of a multi-frame
+transfer.
+
+1
+
+If E = ‘0’ then this is the first frame of multi-frame
+transfer.
+If E = ‘1’ then this is a single frame transfer.
+
+E
+
+0
+
+If S = ‘0’ then this is a middle frame of a multi-frame
+transfer.
+
+1
+
+If S = ‘0’ then this is the last frame of a multi-frame
+transfer.
+If S = ‘1’ then this is a single frame transfer.
+
+TxID[1:0]
+
+0-3
+
+ID of multi-frame transaction.
+
+TxC[1:0]
+
+0-3
+
+Frame counter during multi-frame transfer.
+
+USER1 => DEVM
+
+0
+
+Device is in the OPERATIONAL MODE
+
+1
+
+Device is in the SERVICE MODE
+
+0
+
+Message Valid
+
+1
+
+Message Invalid
+
+USER2 => COME
+
+Table 3.6.2.1.2-2 Control. S and Control. E Definition
+S
+
+E
+
+Type
+
+0
+
+0
+
+This is a multi-frame transfer.
+
+0
+
+1
+
+This is the last frame of multi-frame transfer.
+
+1
+
+0
+
+This is the first frame of multi-frame transfer.
+
+1
+
+1
+
+Single Frame Transfer.
+
+3.6.2.2 Data Flow
+Baud Rate:
+
+125 000 bit/sec
+
+EAR controlled data
+
+15
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+bits
+
+ICD56011974-CAN, Revision -, March 2, 2021
+3.6.2.3 Supported Functions
+The following section specifies the message handling for the MAG during the SERVICE MODE and
+OPERATIONAL MODE. The table below lists the supported function addresses for the CAN interface.
+Table 3.6.2.3-1 Supported Functions
+Function
+Address
+
+Name
+
+Mode
+
+Description
+
+0x01
+
+MAGDATA
+
+Operational
+
+Request magnetometer transmission of compensated magnetic
+field data.
+When the request is received, the magnetometer sends data
+processed during the previous request. Once the data are
+transmitted, the magnetometer delays for the
+TUNABLE_DELAY period, then invokes field measurement
+and processing to have data ready for the next request (see
+Appendix D).
+
+0x02
+
+MAGID
+
+Operational
+
+Request magnetometer transmission of SW Version, Unit
+product number and serial number.
+
+0x05
+
+MAGTEMP
+
+Operational
+
+Request magnetometer transmission of last temperature value of
+MAG
+Magnetometer MAGTEMP response message data bytes are set
+to zero until the first magnetic field measurement is processed
+
+0x0C
+
+MEMREAD
+
+Service
+
+Request for transmission of data from RAM memory.
+
+0x0D
+
+MEMWRITE
+
+Service
+
+Request for writing data to RAM memory.
+
+0x0E
+
+MEMCMD
+
+Service
+
+Request for non-volatile memory command execution.
+
+0x0F
+
+OPMODE
+
+Service
+
+Request for mode transient from SERVICE mode to
+OPERATIONAL mode.
+
+Functions not shown are reserved for factory use.
+3.6.2.4 Message Handling
+⦁
+
+Any message with a different slave address is ignored.
+
+⦁
+
+If an Unknown function address is received, the MAG ignores the message and does not transmit a response.
+
+⦁
+
+If a MEMWRITE, MEMREAD, MEMCMD or OPMODE function is received during OPERATIONAL
+MODE, the MAG ignores the message and does not transmit a response.
+
+⦁
+
+If a MAGDATA, MAGID or MAGTEMP is received during SERVICE MODE, the MAG transmits the
+respective response message with data bytes set to zero
+
+The following tables describe master message requests and slave responses in specific operation modes. Detailed
+data representation is defined in Appendix A: Message Data Definition.
+Table 3.6.2.4-1 CAN Magnetometer Data Messages
+
+EAR controlled data
+
+16
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+In the first MAGDATA request response message following
+power-on or reset, the data bytes are set to zero.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+CAN Communication Frame
+CAN ID
+FA
+
+DLC
+
+SA M
+
+# Frames
+
+Control Byte
+S
+
+E U1 U2 TxID
+
+Data Bytes
+TxC
+
+D1
+
+D2
+
+D3
+
+D4
+
+D5
+
+D6
+
+D7
+
+FA = 0x01 - Read Magnetometer Data – Operational Mode / Service Mode *1
+M. Req
+
+0x01
+
+SA
+
+1
+
+1
+
+1
+
+1
+
+-
+
+- TxIDn
+
+0
+
+S. Resp
+
+0x01
+
+SA
+
+0
+
+8
+
+1
+
+1
+
+0
+
+0 TxIDn
+
+0
+
+XHI XLO
+
+YHI YLO
+
+ZHI
+
+ZLO MSTS
+
+1
+
+S. Resp – Service
+M
+
+0x01
+
+SA
+
+0
+
+8
+
+1
+
+1
+
+1 TxIDn
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+MSTS
+
+Table 3.6.2.4-2 CAN Magnetometer ID Messages
+CAN Communication Frame
+
+FA
+
+DLC
+
+SA M
+
+Control Byte
+S
+
+E U1 U2 TxID
+
+Data Bytes
+TxC
+
+D1
+
+D2
+
+D3
+
+D4
+
+D5
+
+D6
+
+D7
+
+FA = 0x02 - Read Magnetometer ID – Operational Mode / Service Mode *1
+M. Req
+
+S. Resp
+
+S.Resp – Service
+M
+
+0x02 SA
+
+1
+
+1
+
+1
+
+1
+
+-
+
+- TxID1
+
+0
+
+1
+
+0x02 SA
+
+0
+
+8
+
+1
+
+0
+
+0
+
+0 TxID1
+
+0
+
+M SWM
+UP1 UP2 UP3
+SWMI SWMI SW
+A
+A
+
+0x02 SA
+
+0
+
+8
+
+0
+
+0
+
+0
+
+0 TxID1
+
+1
+
+UP4 UP5 UP6 UP7 UP8 UP9 UP10
+
+0x02 SA
+
+0
+
+4
+
+0
+
+1
+
+0
+
+0 TxID1
+
+2
+
+UP11 SNHI SNLO
+
+0x02 SA 1
+
+8
+
+1
+
+0
+
+1
+
+1 TxID1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0x02 SA 1
+
+8
+
+0
+
+0
+
+1
+
+1 TxID1
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0x02 SA 1
+
+4
+
+0
+
+1
+
+1
+
+1 TxID1
+
+2
+
+0
+
+0
+
+0
+
+3
+
+3
+
+Table 3.6.2.4-3 CAN Magnetometer Temperature Messages
+CAN Communication Frame
+
+Nof
+CAN
+frames
+
+CAN ID
+FA
+
+DLC
+
+SA M
+
+Control Byte
+S
+
+E U1 U2 TxID
+
+Data Bytes
+TxC
+
+D1
+
+D2
+
+D3
+
+D4
+
+D5
+
+D6
+
+D7
+
+FA = 0x05 - Read Magnetometer Temperature – Operational Mode
+M. Req
+
+0x05
+
+SA
+
+1
+
+1
+
+1
+
+1
+
+-
+
+- TxIDn
+
+0
+
+S. Resp
+
+0x05
+
+SA
+
+0
+
+3
+
+1
+
+1
+
+0
+
+0 TxIDn
+
+0
+
+1
+THI
+
+TLO
+
+1
+
+Table 3.6.2.4-4 CAN Read Memory Messages
+
+EAR controlled data
+
+17
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+CAN ID
+
+# Frames
+
+ICD56011974-CAN, Revision -, March 2, 2021
+CAN Communication Frame
+CAN ID
+FA
+
+DLC
+
+SA M
+
+# Frames
+
+Control Byte
+S
+
+E U1 U2 TxID
+
+Data Bytes
+TxC
+
+D1
+
+D2
+
+D3
+
+D4
+
+D5
+
+D6
+
+D7
+
+FA = 0x0C – MEMREAD - Read Memory – Service Mode Only
+M. Req
+
+S.Resp -
+
+0x0C SA
+
+1
+
+7
+
+1
+
+1
+
+-
+
+- TxID1
+
+-
+
+MT AD0 AD1 AD2 AD4 LEN
+
+0x0C SA
+
+0
+
+8
+
+1
+
+0
+
+1
+
+0 TxID1
+
+0
+
+D1
+
+D2
+
+0x0C SA
+
+0
+
+8
+
+0
+
+0
+
+1
+
+0 TxID1
+
+1
+
+D8
+
+D9 D10 D11 D12 D13 D14
+
+0x0C SA
+
+0
+
+8
+
+0
+
+0
+
+1
+
+0 TxID1
+
+2
+
+D15 D16 D17 D18 D19 D20 D21
+
+0x0C SA
+
+0
+
+8
+
+0
+
+0
+
+1
+
+0 TxID1
+
+3
+
+D22 D23 D24 D25 D26 D27 D28
+
+0x0C SA
+
+0
+
+5
+
+0
+
+1
+
+1
+
+0 TxID1
+
+0
+
+D29 D30 D31 D32
+
+D3
+
+D4
+
+D5
+
+D6
+
+1
+D7
+
+5
+
+Note: Response example is for MEMREAD when LEN = 32
+CAN Communication Frame
+CAN ID
+FA
+
+DLC
+
+SA M
+
+# Frames
+
+Control Byte
+S
+
+E U1 U2 TxID
+
+Data Bytes
+TxC
+
+D1
+
+D2
+
+D3
+
+D4
+
+D5
+
+D6
+
+D7
+
+FA = 0x0D – MEMWRITE - Write Memory – Service Mode Only
+0x0D SA
+
+1
+
+7
+
+1
+
+0
+
+-
+
+- TxID2
+
+0
+
+MT AD0 AD1 AD2 AD4 LEN
+
+0x0D SA
+
+1
+
+8
+
+0
+
+0
+
+-
+
+- TxID2
+
+1
+
+D1
+
+D2
+
+0x0D SA
+
+1
+
+8
+
+0
+
+0
+
+-
+
+- TxID2
+
+2
+
+D8
+
+D9 D10 D11 D12 D13 D14
+
+0x0D SA
+
+1
+
+8
+
+0
+
+0
+
+-
+
+- TxID2
+
+3
+
+D15 D16 D17 D18 D19 D20 D21
+
+0x0D SA
+
+1
+
+8
+
+0
+
+0
+
+-
+
+- TxID2
+
+0
+
+D22 D23 D24 D25 D26 D27 D28
+
+0x0D SA
+
+1
+
+4
+
+0
+
+1
+
+-
+
+- TxID2
+
+1
+
+D29 D30 D31 D32
+
+0x0D SA
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+TxID
+
+-
+
+1
+
+S. Resp – Not valid 0x0D SA
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+TxID
+
+-
+
+1
+
+Master Msg
+
+S. Resp
+
+D3
+
+D4
+
+D5
+
+D6
+
+D7
+6
+
+Note: Example is for MEMWRITWE message when LEN = 32
+Table 3.6.2.4-6 CAN Memory Command Messages
+
+EAR controlled data
+
+18
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+Table 3.6.2.4-5 CAN Write Memory Messages
+
+ICD56011974-CAN, Revision -, March 2, 2021
+CAN Communication Frame
+CAN ID
+FA
+
+DLC
+
+SA M
+
+# Frames
+
+Control Byte
+S
+
+E U1 U2 TxID
+
+Data Bytes
+TxC
+
+D1
+
+D2
+
+D3
+
+D4
+
+D5
+
+D6
+
+D7
+
+FA = 0x0E – MEMCMD - Memory Command – Service Mode Only
+Master Msg
+
+0x0E SA
+
+1
+
+8
+
+S. Resp
+
+0x0E SA
+
+0
+
+1
+
+S. Resp – Not valid 0x0E SA
+
+0
+
+1
+
+1
+
+CM
+AD0 AD1 AD2 AD3 LEN LEN
+D
+
+1
+
+-
+
+-
+
+TxID
+
+-
+
+1
+
+1
+
+1
+
+0
+
+0
+
+TxID
+
+-
+
+1
+
+1
+
+1
+
+0
+
+1
+
+TxID
+
+-
+
+1
+
+Table 3.6.2.4-7 CAN Operation Mode Command Messages
+CAN Communication Frame
+DLC
+
+Control Byte
+
+Data Bytes
+
+FA = 0x0F – OPMODE - Go To Operation Mode Command – Service Mode Only
+Master Msg.
+
+0x0F
+
+SA
+
+1
+
+1
+
+1
+
+1
+
+-
+
+-
+
+TxID
+
+-
+
+1
+
+S. Resp
+
+0x0F
+
+SA
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+TxID
+
+-
+
+1
+
+3.6.2.4.1 Message Byte Sequence
+During a transmission of multi-byte numbers, the byte containing the most significant byte (MSB) is transmitted
+first, followed by subsequent bytes in decreasing significance order and completing the transmission with the byte
+containing the least significant byte (LSB) transmitted in the last place - Big Endian.
+Address Bytes are transmitted in reversed order - Little Endian
+3.6.2.5 Message Examples
+3.6.2.5.1 Read MAGDATA
+Slave Address = 0x09
+
+SLAVE
+MAG
+
+MAGDATA
+ServiceID = 1
+
+MASTER
+OBC
+
+CAN MSG
+IDE ‐ 11b
+ServiceID
+SlaveID
+5b
+5b
+1
+9
+
+EAR controlled data
+
+M
+1
+b
+
+1
+
+DLC
+4b
+1
+
+Control
+0
+S E ‐ ‐ TxID TxC
+1 0 ‐ ‐ 1
+0
+
+19
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+CAN ID
+
+# Frames
+
+ICD56011974-CAN, Revision -, March 2, 2021
+SLAVE
+MAG
+
+Slave Address = 0x09
+
+MASTER
+OBC
+
+Responds
+CAN FRAME
+
+IDE ‐ 11b
+ServiceID
+SlaveID
+5b
+5b
+1
+9
+
+Control
+0
+
+Data
+4
+5
+6
+TxID TxC
+S E ‐
+Service Data
+1 1 0 0 1
+0 Mag X Mag X Mag Y Mag Y Mag Z Mag Z
+
+DLC
+4b
+
+M
+1
+b
+
+0
+
+8
+
+1
+
+2
+
+3
+
+7
+Msts
+
+Figure 3.6.2.5.1-1 CAN Message Example - MAGDATA
+3.6.2.5.2 Read MAGTEMP
+
+SLAVE
+MAG
+
+Slave Address = 0x09
+
+MAGTEMP
+ServiceID = 5
+
+MASTER
+OBC
+
+CAN MSG
+M
+1
+b
+
+1
+
+SLAVE
+MAG
+
+Slave Address = 0x09
+
+DLC
+4b
+1
+
+Control
+0
+S E ‐ ‐ TxID TxC
+1 0 ‐ ‐ 1
+0
+
+MASTER
+OBC
+
+Responds
+CAN FRAME
+
+IDE ‐ 11b
+ServiceID
+SlaveID
+5b
+5b
+5
+9
+
+M
+1
+b
+
+0
+
+Control
+DLC
+0
+4b
+S E ‐ TxID
+3 1 1 ‐
+1
+
+Data
+1
+2
+TxC Service Data
+0 TEMP TEMP
+
+Figure 3.6.2.5.2-1 CAN Message Example - MAGTEMP
+3.6.3 Memory Area Map
+The MAG memory area map is presented in Figure 3.6.3-1.
+
+EAR controlled data
+
+20
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+IDE ‐ 11b
+ServiceID
+SlaveID
+5b
+5b
+5
+9
+
+ICD56011974-CAN, Revision -, March 2, 2021
+
+The user can access RAM Memory area using MEMWRITE, MEMREAD commands. To access non-volatile
+memory areas (FLASH or EEPROM) the user has to additionally use the MEMCMD command, which copies the
+desired data between non-volatile memory and RAM.
+These messages are only valid during Service Mode. If these Messages are transmitted during Operational Mode,
+the MAG does not process them nor transmit any response.
+3.6.3.1 Memory Area Access
+Memory Areas specified in Figure 3.6.3-1 can be accessed only during Service Mode. During Operational Mode,
+read and write access to these areas is disabled.
+3.6.3.2 Memory Sector: RAM
+Specific RAM memory areas are readable and writable in Service Mode. To read and write data from RAM
+memory, the MEMREAD and MEMWRITE commands are used. The MAG has two user accessible areas in
+RAM memory: Status/config registers area and Memory Buffer area. The user must select the appropriate area in
+the MEMREAD and MEMWRITE commands.
+3.6.3.2.1 RAM Memory Buffer
+The Memory Buffer is a 256 byte area in RAM dedicated to non-volatile memory operations. MEMCMD
+command can transfer data between the RAM Memory buffer and non-volatile memory.
+3.6.3.2.2 Status/Config Registers
+Status/Config registers are read and write registers located in RAM memory.
+3.6.3.2.2.1 Memory Status Register
+The status register is Read Only register at address 0x00 in the Status/Config Registers area of RAM memory.
+Every non-volatile read or write operation is a time consuming event. Therefore, the magnetometer bootloader
+implements the busy indication bit in the status register during these operations.
+If the non-volatile memory operation is in-progress the busy bit is set.
+If the non-volatile memory operation is not active -- All EEPROM or FLASH operation are finished -- then the
+busy indication bit is cleared
+Table 3.6.3.2.2.1-1 Memory Status Register Definition
+EAR controlled data
+
+21
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+Figure 3.6.3-1 Memory Area
+
+ICD56011974-CAN, Revision -, March 2, 2021
+Memory Status register (0x00 - Read Only)
+bits
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+0
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+0/1
+
+Reserved
+
+name
+busy
+
+busy
+
+0
+
+Non-volatile memory interface is free. “ready for cmd”
+
+1
+
+Non-volatile memory interface is busy
+
+3.6.3.2.2.2 Configuration Register (Memory Key Enable)
+
+Memory Access Key
+
+Location in Status/Config
+Register (hex)
+
+Value (hex)
+
+Memory Key
+
+0x01 - 0x08
+
+0x55AA55AA55AA55AA
+
+Reading and writing to some non-volatile memory areas is restricted to factory use. Use of the memory command
+must be carefully controlled to avoid inadvertent changing of values not intended to be changed. Improper values
+can result in a non-responsive unit.
+3.6.3.3 Memory Sector: EEPROM
+The EEPROM memory area is readable and writable in Service Mode when the Memory Key is present in the
+Configuration Register. For detailed descriptions of content within EEPROM memory areas, refer to Appendix B:
+EEPROM Map.
+Parameters identified as critical data in EEPROM are stored in triplicated EEPROM memory sectors. Multiple
+copies allow the MAG to auto correct any critical parameter that has been inadvertently modified and could make
+the MAG inoperable. The following table specifies the parameters that are identified as critical data.
+Table 3.6.3.3-2 - EEPROM Critical Parameters
+EEPROM Parameter
+
+EEPROM Location
+Primary
+
+EEPROM Location
+(Copy 1)
+
+EEPROM Location
+(Copy 2)
+
+SLAVE_ADDR
+
+0x0008
+
+0x0208
+
+0x0408
+
+TUNABLE_DELAY
+
+0x000A
+
+0x020A
+
+0x040A
+
+Note:
+1. If the Slave Address cannot be verified or re-constructed by majority vote, or the specified address is
+invalid (outside the range of 0 to 31), ,the address defaults to 0x09.
+2. If the Interface Select cannot be verified or reconstructed by majority vote, or the specified mode is
+invalid (outside the range of 0 to 2), the interface defaults to RS-485.
+3. An invalid CAL DATA CRC16 will result in zeroed MAGDATA and MAGTEMP messages transmitted
+and an error reported. Refer to MAGDATA definition in Appendix A: Message Data Definition for
+details.
+2. Only CAL DATA parameters are protected by a CRC16 algorithm in the Primary and both Redundant
+Locations. Updates to other parameters in EEPROM do not require a CRC update.
+3.6.3.3.1 EEPROM Read Mechanism
+To read data from EEPROM, the user must perform a two step process.
+EAR controlled data
+
+22
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+To enable reading/writing to non-volatile memory areas via MEMCMD, the specific key has to be written into the
+Configuration Register. The Configuration Register is a Read/Write register at address 0x01 in the Status/Config
+Registers area of RAM memory. The Memory Key Input value specified in Table 3.6.3.2.2.2-1 must be in the
+register to enable the MEMCMD command.
+Table 3.6.3.2.2.2-1 Memory Key Input
+
+ICD56011974-CAN, Revision -, March 2, 2021
+1. MEMCMD (Read Command) is sent to the MAG in order to specify the address and number of bytes to
+read. The MAG then dumps the respective data into RAM Memory Buffer (MEMDATA).
+2. MEMREAD is sent to the MAG. This message commands the MAG to transmit the data from RAM
+Memory Buffer.
+3.6.3.3.2 EEPROM Write Mechanism
+To load data to EEPROM, the user must use a two-step process similar to EEPROM read and the proper key value
+must be in the Configuration Register.
+1. MEMWRITE is sent to the MAG in order to fill RAM Memory Buffer with desired data.
+
+Figure 3.6.3.3.2-1 EEPROM Write Mechanism
+3.6.3.3.3 Updating Critical EEPROM Data
+Critical Data in EEPROM, as defined in Table 3.6.3.3-2, can be updated using the MEMWRITE and MEMCMD
+command as previously specified in section 3.6.3.1. During MAG initialization, a majority voting process is
+performed where the critical EEPROM data primary and redundant locations are compared to identify corrupt
+values. In the case of CAL DATA, a CRC computation is also performed in the primary and the two redundant
+locations. Any mismatch value is auto-corrected by the MAG, if possible. If the majority voting process
+determines a mismatch between all redundant locations and/or there is no calibration data with a valid CRC, a
+failure error is reported in the MAGDATA message. Refer to Appendix A: Message Data Definition for
+MAGDATA Message definition.
+Due to the majority voting process and auto-correct feature, when updating critical data in EEPROM, care must be
+taken to update all redundant copies. Failure to do so could result in the overwrite of written parameters or a
+failure bit enunciation in the MAGDATA message.
+To facilitate the maintenance of critical configuration data, the MAG allows for the auto write of redundant
+locations when writing the primary location. This feature is only implemented for the SLAVE_ADDR,
+TUNABLE_DELAY, and INTERFACE_SELECT parameters. In order to utilize the auto write process, the
+MEMCMD message must be transmitted with the address of the critical data parameter and a 1 byte length.
+Therefore, the only parameter being updated during the MEMCMD transmission must be the critical parameter.
+This allows the MAG to auto-write the redundant copies for that specific parameter. Due to the majority voting
+process and auto-correct feature, when updating critical data in EEPROM, the use of writes to individual
+redundant addresses is not recommended. A critical data mismatch could result in the overwrite of written
+parameters or a failure bit enunciation in the MAGDATA message.
+EAR controlled data
+
+23
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+2. MEMCMD (Write Command) is sent to the MAG. This message commands the MAG to write RAM data
+to the desired non-volatile memory area.
+Refer to Figure 3.6.3.3.1-1 EEPROM Write Mechanism
+
+ICD56011974-CAN, Revision -, March 2, 2021
+The USER_APP_ADDR, USER_APP_SIZE, and USER_APP_CRC16 are not intended to be user modified.
+3.6.3.4 FACTORY KEY Enabling
+Selected messages within the MAG are 'locked' against user modification and are reserved for factory use only.
+3.6.3.5 FACTORYPROG KEY Enabling
+The Factory Program Key is reserved for factory use.
+3.6.3.6 Memory Sector: Flash Memory
+⦁ The FLASH memory area is not intended to be modified by the user.
+4 NOTES
+4.1 Abbreviations and Acronyms
+ADC
+
+Analog to Digital Converter
+
+BIT
+
+Built-In-Test
+
+BOL/BoL
+
+Beginning of Life
+
+CAL
+
+Calibration
+
+CAN
+
+Controller Area Network
+
+CRC
+
+Cyclic Redundancy Check
+
+dB
+
+Decibels
+
+Deg
+
+Degree
+
+EEPROM
+
+Electrically Erasable Programmable Memory
+
+EMC
+
+Electromagnetic Compatibility
+
+EMI
+
+Electromagnetic Interference
+
+EOL/EoL
+
+End of Life
+
+GND
+
+Ground
+
+HIMAG
+
+Honeywell Magnetometer
+
+HW
+
+Hardware
+
+Hz
+
+Hertz
+
+ICD
+
+Interface Control Document
+
+IRU
+
+Inertial Reference Unit
+
+kHz
+
+Kilo Hertz
+
+LSB
+
+Least Significant Bit
+
+MAG
+
+Magnetometer
+
+Max
+
+Maximum
+
+Mb
+
+Mega bit
+
+MDA
+
+Military Defense Agency
+
+MHz
+
+Megahertz
+
+Min
+
+Minimum
+
+mS
+
+Millisecond
+
+EAR controlled data
+
+24
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+The following list defines the acronyms and abbreviations used in this document.
+
+MSB
+
+Most Significant Bit
+
+N/A or NA
+
+Not Applicable
+
+PBA
+
+Printed Board Assembly
+
+PROM
+
+Programmable Memory
+
+PWA
+
+Printed Wiring Assembly
+
+PWM
+
+Pulse Width Modulation
+
+RAM
+
+Random Access Memory
+
+RMS / rms
+
+Root Mean Square
+
+Sec
+
+Second
+
+SW
+
+Software
+
+µS/µsec
+
+Microsecond
+
+µF
+
+Micro Farads
+
+uV/µV
+
+Micro Volts
+
+VDC/Vdc
+
+Volts Direct Current
+
+5 Appendix A: Message Data Definition
+5.1 OBC Command Messages
+5.1.1 MEMWRITE
+Parameter
+
+Parameter
+Name
+
+Word
+
+Unit
+
+Data
+Type
+
+Min
+Value
+
+MT
+
+Memory Type
+
+1
+
+NA
+
+UINT
+
+0
+
+Max
+Value
+
+LSB
+
+Comments
+0 = memory buffer
+[256 bytes]
+1 = status/config
+registers area
+
+AD
+
+Memory
+Address
+
+2-5
+
+NA
+
+UINT
+
+0
+
+LEN
+
+Number of Bytes
+to Write
+
+6
+
+NA
+
+UINT
+
+1
+
+32
+
+1
+
+D
+
+Data Byte 1-32
+
+7-38
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+5.1.2 MEMCMD
+Parameter
+
+Parameter
+Name
+
+Word
+
+Unit
+
+Data
+type
+
+Min
+Value
+
+Max
+Value
+
+LSB
+
+Comments
+
+CMD
+
+Memory
+Command
+
+1
+
+NA
+
+UINT
+
+1
+
+4
+
+1
+
+1 = FLASH READ
+2 = EEPROM READ
+3 = FLASH WRITE
+4 = EEPROM
+WRITE
+
+AD
+
+Memory
+Address
+
+2-5
+
+NA
+
+UINT
+
+1
+
+LEN
+
+Number of Bytes
+to process
+
+6-7
+
+NA
+
+UINT
+
+1
+
+EAR controlled data
+
+25
+
+1
+256
+
+1
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+
+ICD56011974-CAN, Revision -, March 2, 2021
+MEMCMD command is available only during Service Mode when MEMORY KEY is entered as described in
+3.6.3.2.2.2 Configuration Register. Use of the memory command must be carefully controlled to avoid
+inadvertent changing of values not intended to be changed. Improper values can result in a non-responsive unit.
+5.1.3 OPMODE
+This message has no data part.
+5.1.4 TRIM (FACTORY USE ONLY)
+Reserved for factory use.
+5.2 OBC Data Acquisition Messages
+5.2.1 MAGDATA
+This message has no data part.
+5.2.2 MAGTEMP
+This message has no data part.
+
+This message has no data part.
+5.2.4 MEMREAD
+Parameter
+
+Parameter
+Name
+
+Word
+
+Unit
+
+Data
+type
+
+Min
+Value
+
+MT
+
+Memory Type
+
+1
+
+NA
+
+UINT
+
+0
+
+Max
+Value
+
+LSB
+
+Comments
+
+1
+
+0 = memory buffer
+[256 bytes]
+1 = status/config
+registers area
+
+AD
+
+Memory
+Address
+
+2-5
+
+NA
+
+UINT
+
+0
+
+LEN
+
+Number of Bytes
+to process
+
+6
+
+NA
+
+UINT
+
+1
+
+1
+32
+
+1
+
+5.2.5 MAGRAW (FACTORY USE ONLY)
+Reserved for factory use.
+5.2.6 MAGSETRST (FACTORY USE ONLY)
+Reserved for factory use.
+5.3 MAG Response Messages
+5.3.1 MAG Status Words
+This section defines status bytes used in MAG response messages.
+5.3.1.1 Magnetometer STATUS “STS”
+5.3.1.2 Magnetometer Sensors STATUS “Msts”
+Parameter
+
+Parameter Name
+
+Bit Offset
+
+Data
+Type
+
+Comments
+
+Xsat
+
+X Magnetometer
+Saturated
+
+0
+
+Discrete
+
+0 = Normal
+
+EAR controlled data
+
+26
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+5.2.3 MAGID
+
+ICD56011974-CAN, Revision -, March 2, 2021
+1 = Saturated
+Saturation Threshold:
+SATURATION_LIMIT * F.S/100 < Mavg < (1 X/100) * F.S
+Ysat
+
+Y Magnetometer
+Saturated
+
+1
+
+Discrete
+
+0 = Normal
+1 = Saturated
+Saturation Threshold:
+SATURATION_LIMIT * F.S/100 < Mavg < (1 X/100) * F.S
+
+Zsat
+
+Z Magnetometer
+Saturated
+
+2
+
+Discrete
+
+0 = Normal
+1 = Saturated
+Saturation Threshold:
+SATURATION_LIMIT * F.S/100 < Mavg < (1 X/100) * F.S
+
+EEPE
+SAE
+
+TDE
+UAPE
+
+FLASH CRC
+error
+
+3
+
+EEPROM CAL
+DATA CRC error
+
+4
+
+EEPROM MAG
+SA parameter
+error
+
+5
+
+EEPROM TD
+parameter error
+
+6
+
+EEPROM User
+App Error
+
+7
+
+Discrete
+
+0 = No error
+1 = FLASH CRC error detected
+
+Discrete
+
+0 = No error
+1 = CRC error detected
+
+Discrete
+
+0 = No error
+1= Slave Address cannot be determined; default
+address is set(0x09)
+
+Discrete
+
+0 = No error
+1 = MAG Tunable Delay Mismatch detected
+
+Discrete
+
+0 = No error
+1 = EEPROM User App CRC/Mismatch Error
+detected
+Note: Error can be set for two conditions:
+- EEPROM USER_APP_CRC16 value does
+not match computed Application Software
+CRC16
+
+5.3.2 MAGDATA
+Parameter
+
+Parameter
+Name
+
+Word
+
+Units
+
+Data
+type
+
+Min
+Value
+
+Max
+Value
+
+LSB
+
+Comments
+
+STS
+(RS485
+only)
+
+MAG Status
+
+0
+
+NA
+
+Discre
+te
+
+NA
+
+NA
+
+NA
+
+For more details see
+section 5.3.1.1,
+Magnetometer
+STATUS “STS”
+
+X
+
+X MAG Data
+Compensated
+
+1-2
+
+Gauss
+
+INT
+
+215 *
+LSB
+
+(215 1)*
+LSB
+
+0.0001
+6
+
+Note: X=0x0 in
+response to the first
+MAGDATA request
+after entering
+
+EAR controlled data
+
+27
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+FLAE
+
+ICD56011974-CAN, Revision -, March 2, 2021
+
+Y
+
+Y MAG Data
+Compensated
+
+3-4
+
+Gauss
+
+INT
+
+215 *
+LSB
+
+(215 1)*
+LSB
+
+0.0001
+6
+
+Note: Y=0x0 in
+response to the first
+MAGDATA request
+after entering
+OPMODE or when a
+CALDATA mismatch
+is detected
+
+Z
+
+Z MAG Data
+Compensated
+
+4-6
+
+Gauss
+
+INT
+
+215 *
+LSB
+
+(215 1)*
+LSB
+
+0.0001
+6
+
+Note: Z=0x0 in the
+response to the first
+MAGDATA request
+after entering
+OPMODE or when a
+CALDATA mismatch
+is detected
+
+MSTS
+
+Magnetometer
+Sensor Status
+
+7
+
+NA
+
+Discre
+te
+
+NA
+
+NA
+
+NA
+
+For more details see
+section 5.3.1.2,
+Magnetometer
+STATUS “Msts”
+
+5.3.3 MAGTEMP
+Parameter
+
+Parameter
+Name
+
+Word
+
+Unit
+
+Data
+type
+
+Min
+Value
+
+Max
+Value
+
+LSB
+
+Comments
+
+STS
+(RS485
+only)
+
+MAG Status
+
+0
+
+NA
+
+Discre
+te
+
+NA
+
+NA
+
+NA
+
+For more details see
+section 5.3.1.1,
+Magnetometer
+STATUS “STS”
+
+T
+
+Temperature
+
+1-2
+
+°C
+
+INT
+
+-30
+
+70
+
+0.5
+
+Note: T=0x0 before
+the first MAGDATA
+message is processed
+or when a CALDATA
+mismatch is detected
+
+Parameter
+
+Parameter
+Name
+
+Word
+
+Unit
+
+Data
+type
+
+Min
+Value
+
+Max
+Value
+
+LSB
+
+Comments
+
+STS
+(RS485
+only)
+
+MAG Status
+
+0
+
+NA
+
+Discre
+te
+
+NA
+
+NA
+
+NA
+
+For more details see
+section 5.3.1.1,
+Magnetometer
+STATUS “STS”
+
+SWMI
+
+SW Version
+Minor
+
+1-2
+
+NA
+
+ASCII
+
+0
+
+99
+
+1
+
+SWMA
+
+SW Version
+Major
+
+3-4
+
+NA
+
+ASCII
+
+0
+
+99
+
+1
+
+UP
+
+Unit Part
+Number
+
+5-15
+
+NA
+
+ASCII
+
+0
+
+99
+
+1
+
+SN
+
+Unit Serial
+Number
+
+16-17
+
+NA
+
+UINT
+
+0
+
+65,535
+
+1
+
+5.3.4 MAGID
+
+EAR controlled data
+
+28
+
+Example ASCII:
+'56011974001'
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+OPMODE or when a
+CALDATA mismatch
+is detected
+
+ICD56011974-CAN, Revision -, March 2, 2021
+5.3.5 MEMDATA
+Parameter
+
+Parameter
+Name
+
+Word
+
+Unit
+
+Data
+type
+
+Min
+Value
+
+Max
+Value
+
+LSB
+
+Comments
+
+STS
+(RS485
+only)
+
+MAG Status
+
+0
+
+NA
+
+Discre
+te
+
+NA
+
+NA
+
+NA
+
+For more details see
+section 5.3.1.1,
+Magnetometer
+STATUS “STS”
+
+D
+
+Data byte 1-32
+
+1-32
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+6 Appendix B: EEPROM Map
+The following section provides a detailed map of the EEPROM content. Where a parameter requires more than 1
+byte, the lower EEPROM address holds the parameter's LSB and the higher address holds the parameter's MSB.
+
+EAR controlled data
+
+29
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+The MSB and LSB sequence for EEPROM parameters for DataType equal to ASCII are defined in the Comments
+column.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+Address
+
+Description
+
+Parameter Name
+
+# of
+Bytes
+
+Data
+Type
+
+Units
+
+Min
+Value
+
+Max
+Value
+
+Scale
+Factor
+
+Default
+Value
+
+Comments
+
+0x0000
+
+Factory Key
+
+FACTORY_KEY
+
+8
+
+UINT64
+
+NA
+
+NA
+
+NA
+
+NA
+
+0x00
+
+Factory Reserved
+
+0x0008
+
+Slave Address
+
+SLAVE_ADDR
+
+1
+
+UINT
+
+NA
+
+0x00
+
+0x1F
+
+NA
+
+0x09
+
+0x0009
+
+Watchdog
+Time Address
+
+WDT_TMR_ADDR
+
+1
+
+UINT
+
+NA
+
+0x03
+
+0x07
+
+NA
+
+0x07
+
+WDT Timeouts:
+3 = 117.6 ms
+4 = 235.2 ms
+5 = 470.4 ms
+6 = 940.8 ms
+7 = 1881.6 ms
+Code sets timeout to
+1881.6 ms if value in
+EEPROM not in range.
+
+0x000A
+
+MAG Data
+Freshness
+Delay
+
+TUNABLE_DELAY
+
+1
+
+UINT
+
+mS
+
+0x11
+
+0x37
+
+1 mS
+
+0x37
+
+Out of range values
+default to 55 ms
+
+0x000B
+
+Interface
+Select
+
+INTERFACE_SEL
+
+1
+
+UNIT
+
+NA
+
+0x00
+
+0x02
+
+NA
+
+0x01
+
+Factory Reserved
+
+0x000C
+
+RESERVED
+
+0x0010
+
+User
+Application
+Address
+
+USER_APP_ADDR
+
+2
+
+UINT
+
+NA
+
+0x0000
+
+0xFFFF
+
+NA
+
+0x0012
+
+User
+Application
+Size
+
+USER_APP_SIZE
+
+2
+
+UINT
+
+NA
+
+0x0000
+
+0xFFFF
+
+NA
+
+Varies
+
+0x0014
+
+User
+Application
+CRC16 Value
+
+USER_APP_CRC16
+
+2
+
+UINT
+
+NA
+
+0x0000
+
+0xFFFF
+
+NA
+
+Varies
+
+0x0016
+
+RESERVED
+
+0x0018
+
+Unit Part
+Number
+
+UNIT_P_N
+
+11
+
+ASCII
+
+NA
+
+NA
+
+NA
+
+NA
+
+0x0023
+
+PWA Serial
+Number
+
+PWA_S_N
+
+2
+
+UINT
+
+NA
+
+0x0000
+
+0xFFFF
+
+NA
+
+Varies
+
+0x0025
+
+Chassis Serial
+Number
+
+CHASS_S_N
+
+2
+
+UINT
+
+NA
+
+0x0000
+
+0xFFFF
+
+NA
+
+Varies
+
+0x0027
+
+PWA
+production
+week
+
+MFG_WEEK
+
+1
+
+UINT
+
+NA
+
+0x01
+
+0x34
+
+NA
+
+Varies
+
+0x01 = Week 1
+0x34 = Week 52
+
+0x0028
+
+RESERVED
+
+N/A
+
+1
+
+0x0029
+
+PWA
+production
+year
+
+MFG_YEAR
+
+2
+
+UINT
+
+NA
+
+0x07E0
+
+0xFFFF
+
+NA
+
+Varies
+
+0x07E0 = 2016
+
+0x002B
+
+Honeywell
+Hardware
+Part Number
+
+HW_P_N
+
+12
+
+ASCII
+
+NA
+
+NA
+
+NA
+
+NA
+
+Varies
+
+HW Part Number:
+(MSB ...... LSB):
+56011974‐001 (FLT–
+RS485)
+or
+56011974‐002 (FLT–
+RS422)
+or
+56011974‐003 (FLT–
+CAN)
+
+Factory Reserved
+
+2
+
+Factory
+Reserve
+d
+
+30
+
+Factory Reserved
+
+Unit Part Number:
+(MSB ...... LSB):
+Example:
+56011974001
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+EAR controlled data
+
+4
+
+ICD56011974-CAN, Revision -, March 2, 2021
+Address
+
+Description
+
+Parameter Name
+
+# of
+Bytes
+
+Data
+Type
+
+Units
+
+Min
+Value
+
+Max
+Value
+
+Scale
+Factor
+
+Default
+Value
+
+Comments
+
+0x0037
+
+Honeywell
+Software Part
+Number
+
+SW_P_N
+
+14
+
+ASCII
+
+NA
+
+NA
+
+NA
+
+NA
+
+Varies
+
+SW Part Number:
+(MSB ...... LSB):
+56011971‐xx.yy
+‐ where xx is 2 bytes
+ASCII numeric from 01
+to 99
+‐ where yy is 2 Bytes
+ASCII numeric (Set to
+00 for flight units)
+
+0x0045
+
+Boot Loader
+SW
+
+0x0053
+
+RESERVED
+
+0x0058
+
+Calibration
+Data
+
+14
+
+ASCII
+
+NA
+
+NA
+
+NA
+
+NA
+
+Example 56011971‐
+xx.yy
+
+Various
+
+°Variou
+s
+
+Various
+
+Various
+
+Various)
+
+5
+Various
+
+Factory Reserved
+
+63
+
+Varies
+
+Factory Reserved
+
+7.1 CRC Error
+7.1.1 Calibration Data Validity Memory Protection
+During the initialization phase of the magnetometer embedded software (SW), calibration and compensation
+values are loaded from EEPROM memory to RAM memory. The validity of these data are checked by
+computation CRC and compared to the CRC stored in the EEPROM. The table below defines the memory
+locations of calibration data and their CRC.
+The SW computes a CRC for all three copies of calibration data memory regions
+The computed values are compared with CRC stored in the EEPROM.
+If one or two of the copies have a CRC mismatch, the associated data are rewritten with a copy from a segment
+without a CRC error, as determined by the majority voting process, if required.
+If two or more of the copies have a valid CRC, but they do not match each other, the majority voting process will
+utilize the value from any two matching copies to correct the third. If no two copies have the same CRC, but more
+than one has a valid CRC, the data from the lowest segment with a valid CRC will be utilized to correct the other
+two,
+If all copies have a CRC mismatch, data recovery is not possible and the EEPROM CRC Error Flag is set in the
+Magnetometer Sensors STATUS byte.
+Table 7.1.1-2 Magnetometer sensors status byte definition (EEPE)
+
+Msts – Magnetometer sensors status byte definition
+Bits
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+0
+
+Name
+
+Xsat
+
+Ysat
+
+Zsat
+
+FLAE
+
+EEPE
+
+SAE
+
+TDE
+
+UAPE
+
+EEPE
+
+‘0’
+
+No error
+
+‘1’
+
+EEPROM CRC error detected for CAL DATA parameters
+
+7.1.2 Embedded Software FLASH Code Validity Memory Protection
+EAR controlled data
+
+31
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+7 Appendix C: Error Reporting Capability
+
+ICD56011974-CAN, Revision -, March 2, 2021
+Upon receipt of the OPMODE command to attempt to transition to Operational Mode, the validation of FLASH
+data is performed. The validity of these data are checked by computation CRC and compared to the CRC stored in
+EEPROM. The table below defines the significant memory locations for magnetometer SW in the FLASH.
+Table 7.1.2-1 embSW EEPROM Data Structure
+
+App SW Start Address – The entrance pointer to memory where the magnetometer application starts.
+App SW size – The size of magnetometer application in bytes.
+App CRC – The pre-computed CRC value for mag. application binary.
+The boot-loader computes a CRC for program data in the FLASH memory.
+[ App_SW_Start_Address, (App_SW_Start_Address+ App_SW_size) – 1 ]
+The computed CRC is compared with the CRC stored in the EEPROM "App_CRC“.
+If the computed CRC is not the same as CRC stored in the EEPROM then the MAG remains in Service Mode.
+The FLASH CRC Error Flag is set in the Magnetometer Sensors STATUS byte.
+
+Msts – Magnetometer sensors status byte definition
+Bits
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+0
+
+Name
+
+Xsat
+
+Ysat
+
+Zsat
+
+FLAE
+
+EEPE
+
+SAE
+
+TDE
+
+UAPE
+
+2
+
+1
+
+0
+
+MSGE
+
+COME
+
+DEVM
+
+FLAE
+
+‘0’
+
+No error
+
+‘1’
+
+FLASH CRC error detected
+
+7.2 Communication Data Protection, RS422/485
+Not applicable to this version of the ICD..
+Table 7.2-1 Magnetometer status byte definition (COME)
+
+STS – Magnetometer status byte definition
+bits
+
+7
+
+name
+
+6
+
+5
+
+4
+
+3
+
+Reserved
+COME
+
+‘0’
+
+No parity or CRC error event.
+
+‘1’
+
+Parity or CRC error has happened.
+
+The user should perform a similar CRC computation and comparison of MAG transmitted data, discarding
+messages with a CRC mismatch and re-issuing the associated command.
+7.3 Magnetic Sensors Saturation Status
+Each axis, X, Y and Z, implements a saturation flag status.stored in the EEPROM memory.
+
+EAR controlled data
+
+32
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+Table 7.1.2-2 Magnetometer sensors status byte definition (FLAE)
+
+ICD56011974-CAN, Revision -, March 2, 2021
+During each measurement of the magnetic field, the saturation limit is checked for all axes. If the magnetic field in
+any axis is higher than the SAT_LIMIT, then the Saturation Error Flag for the affected axis is set in the
+Magnetometer Sensors STATUS byte.
+Table 7.3-1 Magnetometer sensors status byte definition (X, Y, Z sat)
+
+Msts – Magnetometer sensors status byte definition
+Bits
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+0
+
+Name
+
+Xsat
+
+Ysat
+
+Zsat
+
+FLAE
+
+EEPE
+
+SAE
+
+TDE
+
+UAPE
+
+[X,Y,Z]sat
+
+‘0’
+
+No error
+
+‘1’
+
+X axis saturated
+
+Critical EEPROM values are protected by triple a redundancy and voting mechanism. During application
+initialization, the values are read from EEPROM and the validity of the data are checked by the triple voting
+mechanism. If any of the values cannot be reconstructed from these three copies, then the corresponding error flag
+is set.
+If the Slave Address cannot be reconstructed, then the SAE Error Flag is set in the Magnetometer Sensors
+STATUS byte.
+If Tunable Delay cannot be reconstructed, then the TDE Error Flag is set in the Magnetometer Sensors STATUS
+byte.
+If App SW Start Address, App SW size, or App CRC cannot be reconstructed, then the UAPE Error Flag is set in
+the Magnetometer Sensors STATUS byte.
+Table 7.4-1 Magnetometer sensors status byte definition (SAE, TDE, UAPE)
+
+Msts – Magnetometer sensors status byte definition
+Bits
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+0
+
+Name
+
+Xsat
+
+Ysat
+
+Zsat
+
+FLAE
+
+EEPE
+
+SAE
+
+TDE
+
+UAPE
+
+SAE
+
+TDE
+
+UAPE
+
+‘0’
+
+No error
+
+‘1’
+
+MAG Slaves Addresses Mismatch detected
+
+‘0’
+
+No error
+
+‘1’
+
+MAG Tunable Delay mismatch detected
+
+‘0’
+
+No error
+
+‘1’
+
+EEPROM User App CRC/Mismatch error detected
+
+7.5 Bad Command Parameter
+If the user / OBC sends a message with a valid Slave Address and a command with a valid CRC but parameters
+are out of range, then the Message Error (MSGE) Flag is set in the Magnetometer STATUS „STS“ byte.
+EAR controlled data
+
+33
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+7.4 EEPROM Parameter Read Error
+
+ICD56011974-CAN, Revision -, March 2, 2021
+Table 7.5-1 Magnetometer sensors status byte definition (EEPE)
+\
+
+Msts – Magnetometer sensors status byte definition
+Bits
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+0
+
+Name
+
+Xsat
+
+Ysat
+
+Zsat
+
+FLAE
+
+EEPE
+
+SAE
+
+TDE
+
+UAPE
+
+EEPE
+
+‘0’
+
+No error
+
+‘1’
+
+EEPROM CRC error detected for CAL DATA parameters
+
+8 Appendix D: Internal Measurement Timing
+
+Figure 8.0-1: MAG Acquisition Process and Timing
+Table 8.0-1: Time Values for Processor Tasks
+Signal Name
+
+Time (mS)
+
+Notes
+
+ADCset
+
+6.2
+
+SW/HW timing
+
+ADCreset
+
+6,2
+
+SW/HW timing
+
+T “ Temperature
+
+1
+
+SW/HW timing
+
+Compensation
+
+~0.4
+
+SW/HW timing
+
+Tunable delay
+
+55 (default)
+
+S_R_DELAY
+
+15
+
+EAR controlled data
+
+EEPROM param (see note below)
+Reserved
+34
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+The diagram below illustrates the main processor activity sequence and the time taken for each. The processor
+cycle starts when the HIMAG receives a request for data.
+
+ICD56011974-CAN, Revision -, March 2, 2021
+NOTE: The maximum value of the Tunable delay is 55 for a 100mS request period and 21 mS for a 50 mS data
+request periods. This parameter can be set in EEPROM by the user to adjust the data latency.
+
+EAR controlled data
+
+35
+
+Honeywell Proprietary
+
+Downloaded By: Withanawasam, Lucky - 15 Dec 2023 22:08:45 UTC - TEC: USONLY
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws.
+
+End of Document
+
+

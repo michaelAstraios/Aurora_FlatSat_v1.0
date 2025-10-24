@@ -1,0 +1,62 @@
+{
+  "sensor_config": {
+    "port": "/dev/ttyUSB0",
+    "baud_rate": 115200,
+    "timeout": 1.0,
+    "description": "Honeywell HG4934 3-Axis Rate Sensor configuration"
+  },
+  "communication": {
+    "protocol": "RS422",
+    "data_bits": 8,
+    "parity": "none",
+    "stop_bits": 1,
+    "flow_control": "none"
+  },
+  "data_acquisition": {
+    "sample_rate_hz": 100,
+    "data_format": "float32",
+    "enable_logging": true,
+    "log_interval_ms": 10
+  },
+  "testing": {
+    "built_in_test": {
+      "enabled": true,
+      "timeout_seconds": 5
+    },
+    "performance_test": {
+      "duration_seconds": 10,
+      "min_sample_rate_hz": 50,
+      "max_std_deviation": 0.1
+    },
+    "stability_test": {
+      "duration_seconds": 30,
+      "max_drift_per_minute": 0.01
+    }
+  },
+  "logging": {
+    "enable_file_logging": true,
+    "log_level": "INFO",
+    "log_directory": "./logs",
+    "enable_csv_logging": true,
+    "csv_filename_pattern": "rate_sensor_data_{timestamp}.csv"
+  },
+  "monitoring": {
+    "real_time_display": true,
+    "update_interval_seconds": 5,
+    "status_check_interval_seconds": 1
+  },
+  "error_handling": {
+    "max_retry_attempts": 3,
+    "retry_delay_seconds": 1,
+    "connection_timeout_seconds": 10,
+    "enable_auto_reconnect": true
+  }
+}
+
+
+
+
+
+
+
+

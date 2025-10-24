@@ -1,0 +1,2883 @@
+PRODUCTION - Released - 31 Mar 2025 19:59:28 UTC
+
+HONEYWELL COMMERCIAL (HC) SERIES
+
+REACTION WHEEL ASSEMBLY (RWA)
+
+HC11 INTERFACE CONTROL DOCUMENT
+
+ICD64020011
+
+Rev -
+
+March 2025
+
+CAGE CODE: 61962
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+INTERFACE CONTROL DOC
+
+DISCLAIMER
+This document contains Honeywell proprietary information.
+Information contained herein is to be used solely for the purpose submitted, and no part of this document or
+its contents shall be reproduced, published, or disclosed to a third party without the express permission of
+Honeywell International.
+These items are controlled by the U.S. Government and authorized for export only to the country of ultimate
+destination for use by the ultimate consignee or end-user(s) herein identified. They may not be resold,
+transferred, or otherwise disposed of, to any other country or to any person other than the authorized ultimate
+consignee or end-user(s), either in their original form or after being incorporated into other items, without first
+obtaining approval from the U.S. government or as otherwise authorized by U.S. law and regulations. Diversion
+contrary to U.S. export laws and regulations is prohibited.
+Copyright 2025- Honeywell International
+
+Export Administration Regulations (EAR) Notice:
+This document contains information within the purview of the Export Administration Regulations (EAR), 15 CFR
+730-744, and is export controlled. It may not be transferred to foreign nationals in the U.S. or abroad, without
+specific approval of a knowledgeable Honeywell export control official, and/or unless an export license/license
+exception is obtained/available from the Bureau of Industry and Security (BIS), United States Commerce.
+Violations of these regulations are punishable by fine, imprisonment, or both.
+
+Restrictions applicable to all users and uses: HONEYWELL-PROPRIETARY
+This copyrighted work and all information are the property of Honeywell International Inc.,, contain trade
+secrets and may not, in whole or in part, be used, duplicated, or disclosed for any purpose without prior
+written permission of Honeywell International Inc. All Rights Reserved
+
+Export Classification:
+ECCN 9E515.a
+(5504.2.c)
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Table of contents
+REVISION HISTORY................................................................................................................................... 5
+1
+
+HC11 INTERFACE CONTROL DRAWING – ICD64020011 ............................................................ 6
+1.1
+
+2
+
+Overview/Scope .................................................................................................................................. 6
+
+GENERAL OVERVIEW............................................................................................................ 6
+2.1
+
+Assumptions ........................................................................................................................................ 6
+
+2.2
+
+Constraints .......................................................................................................................................... 6
+
+2.3
+
+Definitions ........................................................................................................................................... 6
+
+2.4
+
+Acronyms............................................................................................................................................. 7
+
+2.5
+
+References ........................................................................................................................................... 8
+
+3
+
+THEORY OF OPERATION ........................................................................................................ 9
+3.1
+
+Background ......................................................................................................................................... 9
+
+3.2
+
+Overview ............................................................................................................................................. 9
+
+3.3
+
+Reserved .............................................................................................................................................. 9
+
+3.4
+
+Reserved .............................................................................................................................................. 9
+
+3.5
+
+Reserved .............................................................................................................................................. 9
+
+4
+
+SPECIFICATIONS ................................................................................................................ 10
+
+5
+
+OPERATION AND HANDLING GUIDELINES ................................................................................ 11
+5.1
+
+System Operations ............................................................................................................................ 11
+
+5.2
+
+Identification ..................................................................................................................................... 12
+
+5.3
+
+ESD Precautions................................................................................................................................. 13
+
+5.4
+
+Operational Constraints .................................................................................................................... 13
+
+5.5
+
+Electrical Constraints ......................................................................................................................... 13
+
+5.6
+
+Health and Safety Fault Thresholds ................................................................................................... 14
+
+5.7
+
+Mechanical ........................................................................................................................................ 14
+
+5.8
+
+Bearing Drag Telemetry Constraints ................................................................................................. 14
+
+5.9
+
+Handling and Storage ........................................................................................................................ 15
+
+5.10
+
+Packaging........................................................................................................................................... 15
+
+6
+
+MECHANICAL ................................................................................................................... 16
+6.1
+
+Overall Form Factor ........................................................................................................................... 16
+
+6.2
+
+Characteristics ................................................................................................................................... 18
+
+6.3
+
+Center of Gravity Location................................................................................................................. 19
+
+6.4
+
+Mass and Inertia properties .............................................................................................................. 19
+
+6.5
+
+Thermal properties ............................................................................................................................ 19
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+3
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+7
+
+CONNECTOR DETAIL .......................................................................................................... 20
+7.1
+
+31-Pin Receptacle .............................................................................................................................. 20
+
+7.2
+
+Connector Pin-Out ............................................................................................................................. 21
+
+8
+
+ELECTRICAL ...................................................................................................................... 23
+8.1
+
+Simplified Block Diagram ................................................................................................................... 23
+
+8.2
+
+Simplified Motor Control Loop .......................................................................................................... 24
+
+8.3
+
+RS422/RS485 Interface Diagram ....................................................................................................... 25
+
+8.4
+
+Power Overview ................................................................................................................................ 26
+
+8.5
+
+In-Rush Current ................................................................................................................................. 27
+
+8.6
+
+Grounding Scheme ............................................................................................................................ 28
+
+8.7
+
+Reserved ............................................................................................................................................ 29
+
+8.8
+
+Return Current .................................................................................................................................. 29
+
+9
+
+10
+
+COMMUNICATIONS API ..................................................................................................... 30
+9.1
+
+Message Types .................................................................................................................................. 32
+
+9.2
+
+Message Format, Timing and Addressing .......................................................................................... 33
+
+9.3
+
+Command Messages ......................................................................................................................... 38
+
+9.4
+
+Telemetry Messages.......................................................................................................................... 45
+
+SECURITY MANUAL ........................................................................................................... 48
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+4
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Revision History
+Revision
+
+Date
+
+Description
+
+Rev -
+
+03/24/2025
+
+Initial Release per ECN-6208631
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+5
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+1 HC11 Interface Control Drawing – ICD64020011
+1.1 Overview/Scope
+Honeywell’s Commercial (HC) Series Reaction Wheel Assembly (RWA), also referred to as the New Space RWA,
+is a low-cost, high performance, fully self-contained ‘smart’ wheel consisting of the Housing, Inertia Rotor,
+Bearings, Brushless DC Motor, Electronics, and interfaces to the spacecraft via a single 31-Pin Connector. The
+RWA is intended to serve high-volume, low-cost, low-mass, small-sat LEO constellation market.
+This document is intended to serve as both a detailed user guide and as a top-level Interface Control Document
+(ICD). As such, this document describes; storage constraints, pre-installation procedure, operational constraints,
+overall architecture, block diagrams as appropriate, mechanical interface, electrical interface, communication
+signals/protocol and defines general terminology used in attitude control systems.
+This ICD is the controlling document and supersedes all other references should a discrepancy exist. The
+intended audiences are: Project Management, Design Engineering, Design Verification, Systems Design, and
+other support disciplines as needed. It details the electro-mechanical interface to the Honeywell HC RWA and
+Honeywell’s API customers and/or 3rd party vendors will need to interface to the RWA.
+Note that values in this document are subject to change, pending completion of PN 64020011 HC11 Qualification
+Test campaign.
+
+2 General Overview
+2.1 Assumptions
+None at this time.
+
+2.2 Constraints
+None at this time
+
+2.3 Definitions
+Throughout this document, the following italicized terms have the following meanings and/or definitions:
+•
+
+The term operating temperature means the baseplate temperature range the unit can be operated at and
+maintain full performance and/or functionality.
+
+•
+
+The operating voltages are assumed to be maintained at the RWA J1 connector under all operating conditions
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+6
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+2.4 Acronyms
+ACS
+
+Attitude Control System
+
+ATP
+
+Acceptance Test Procedure
+
+BLDC
+
+Brushless Direct Current
+
+BEMF
+
+Back Electro-Motive Force
+
+CAN
+
+Controller Area Network
+
+CG
+
+Center of Gravity
+
+CRC
+
+Cyclical Redundancy Check
+
+DC
+
+Direct Current
+
+EOL
+
+End of Life
+
+FOC
+
+Field Oriented Control
+
+FPGA
+
+Field Programmable Gate Array
+
+HC
+
+Honeywell Commercial
+
+ICD
+
+Interface Control Drawing
+
+NS
+
+New Space
+
+PBA
+
+Printed Board Assembly
+
+PWM
+
+Pulse Width Modulation
+
+RPM
+
+Revolutions Per Minute
+
+RWA
+
+Reaction Wheel Assembly
+
+UART
+
+Universal Asynchronous Receiver-Transmitter
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+7
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+2.5 References
+The table below illustrates the orderable HC11 part numbers.
+Table 1 – Orderable Part Numbers
+Part Number
+
+Description
+
+Comm.
+
+Deliverable
+
+Test Procedure
+
+Torque
+
+Mounting
+Interface
+
+Protocol
+64020011-901
+
+RWA – HC11 (RS422)
+
+RS422
+
+300 mNm
+
+10-32
+
+TP64020011
+
+64020011-903
+
+RWA – HC11 (RS485)
+
+RS485
+
+300 mNm
+
+10-32
+
+TP64020011
+
+64020011-913
+
+RWA – HC11 (RS485)
+
+RS485
+
+200 mNm
+
+M5
+
+TPR-92519546-1000
+
+The table below lists applicable reference documents.
+Table 2 – Reference Documents
+Type
+
+Number
+
+Description
+
+O&I Drawing
+
+64012781
+
+Outline & Installation, HC11 RWA
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+8
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+3 Theory of Operation
+This section describes, in high-level terms, the overall operation of the reaction wheel assembly.
+
+3.1 Background
+The RWA is a self-contained assembly that forms part of the attitude control sub-system of the spacecraft. It
+receives either torque, speed or telemetry commands from the spacecraft and adjusts, as necessary, the new
+operational speed or torque. Upon request, the RWA sends telemetry information back to the spacecraft. The
+RWA converts electrical energy to stored mechanical energy later to be exchanged between itself and the
+spacecraft.
+
+3.2 Overview
+The RWA is comprised of the following functional groups as diagramed in Figure 1. The diagram is intended to
+be a high-level overview only and not an exhaustive accounting of the RWA.
+Power to the RWA enters and exits via the AXON 31-pin connector. Exact pin location among other details will
+be described in more detail later in the document. Communication is achieved via a redundant pair of serial
+channels. Communication protocol, format etc. are fully described in a subsequent section. Refer to Section
+7.2 for a full connector pinout listing.
+Commutation is achieved by FOC methods using an FPGA, drivers, and half-bridge inverters. FOC commutation
+uses rotor position information which is achieved via a proprietary encoding scheme. Firmware image and
+RWA identification information is redundantly stored in MRAM.
+Input power is protected from EMI by a common mode choke and low pass filtering.
+
+Figure 1 – Simplified RWA Block Diagram
+
+3.3 Reserved
+3.4 Reserved
+3.5 Reserved
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+9
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+4 Specifications
+This section defines the HC11 specifications applicable to the products related to this ICD.
+Table 3 – HC11 Specifications
+Description
+
+Limit
+
+Unit
+
+-901, -903
+
+-913
+
+0.3
+
+0.2
+
+Rated torque imparted at mounting plate(3)
+
+Nm
+
+Rated angular momentum (at 3600 RPM) (1)
+
+25
+
+Nms
+
+Standby Power (max)
+
+≤6
+
+Watt
+
+Peak Power (max)
+
+≤185
+
+Steady State Power (max)
+
+≤125
+≤25
+
+Rated RWA Mission Life, LEO (typical)
+Minimum RWA Reliability for above mission life (Ps)
+
+Watt
+
+7
+
+13
+
+7 yrs, 25°C ,
+1800 rpm
+Ps=0.975
+
+13 yrs,
+Ps=TBC
+
+Rated transition time from "standby" to "operational" mode
+
+Watt
+
+≤10
+
+year
+
+sec
+
+Rated torque percent over/under shoot from commanded value
+
+TBC
+
+TBC
+
+%
+
+Rated dynamic torque ripple (max-min) as a % of commanded
+value
+
+TBC
+
+TBC
+
+%
+
+Bus Voltage Range (2)(3)
+
+24 – 38
+
+VDC
+
+Static Imbalance (BOL)
+
+≤1 (TBC)
+
+g-cm
+
+Dynamic Imbalance (BOL)
+
+≤10 (TBC)
+
+g-cm2
+
+Notes:
+(1)
+
+Angular Momentum (H) at a given speed (x) for this RWA is determined by:
+𝐻(𝑥) = 25𝑁𝑚𝑠 ∗
+
+(2)
+
+𝑥 𝑅𝑃𝑀
+3600 𝑅𝑃𝑀
+
+Bus voltage is measured at the RWA J1 connector. The RWA will sink & source bus current in the
+range of +/- 0.1A-6.5A based on bus voltage & motor operations. The power bus source
+impedance must be << 0.150 ohms to limit voltage variations at the RWA connector. (6.5A is
+worst case for operation at lowest do-not-exceed voltage, with maximum
+acceleration/deceleration, at/near maximum speed.)
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+10
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+(3)
+
+Torque performance may be reduced under certain conditions (below 27V, min/max temp),
+pending analysis/test
+
+5 Operation and Handling Guidelines
+This section describes the general operating and handling guidelines for the Honeywell Commercial Series (HC)
+RWAs.
+The RWA is intended for use in the attitude control system of an unmanned satellite. The wheel provides
+reaction torque and momentum storage about a given spacecraft axis. The unit is designed to operate in space
+and will be subjected to the environments normally associated with space borne products (temperature
+extremes, random vibration, vacuum, radiation, etc.).
+
+5.1 System Operations
+The RWA interfaces electrically to an attitude control subsystem. RWA power, control, and telemetry signals
+are interfaced through a single electrical connector. Reaction torque is net torque transferred to the spacecraft
+through the unit mounting surface. Generated heat is transferred by conduction through the unit mounting
+surface and radiation to the surroundings. Operation of the RWA requires a secure mounting of the unit on its
+intended support structure and application of torque to the inertia wheel by powering the RWA and providing
+commands through an appropriate control system.
+In addition to the space environment, a small portion of the unit’s operating life will occur during component
+and spacecraft testing. It is during this time that the greatest potential for safety hazards exists. The operating
+procedure is essentially the same as described above, except that the unit may be mounted to a test support
+fixture and the control system may be a component test console.
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+11
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+5.2 Identification
+The RWA contains a label with identification data as shown in Figure 2 below:
+
+Figure 2 – RWA Identification Label
+The RWA also contains two electronic copies of the label information. These tables are available to the user via
+the serial interface. The memory locations, field descriptions, and examples of ASCII text content is shown in
+the table below.
+
+Table 4 – Memory Identification Table
+Address Range
+TBC
+
+Field Name
+RWA Description
+
+Description
+Describes what HW RWA item this is
+e.g. HC11-GEN2
+
+TBC
+
+Honeywell RWA ID
+
+RWA Identifier defined by Honeywell
+e.g. 61962 PN: 64020011-901
+
+TBC
+
+RWA Serial Number
+
+Serial number of the specific RWA
+e.g. 99000101
+
+TBC
+
+Honeywell Reserved Item Reserved 32-byte ASCII string #1
+#1
+
+TBC
+
+Honeywell Reserved Item Reserved 32-byte ASCII string #2
+#2
+
+TBC
+
+Honeywell Reserved Item Reserved 32-byte ASCII string #3
+#3
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+12
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+5.3 ESD Precautions
+Design measures have been taken to protect the Honeywell RWA from ESD. However, some ESD events may
+cause damage that could lead to immediate and/or latent failures. To prevent possible ESD damage, the RWA
+should always be stored within an ESD-safe bag or ESD-safe container. The RWA should only be handled with
+appropriate ESD protection. All packaging will be clearly marked with an “ESD Sensitive” label. Regardless of
+labeling, all RWA devices are susceptible to damage from an ESD event and must be packaged and handled
+accordingly.
+
+5.4 Operational Constraints
+Normal operating speed is ±3600 RPM. Nominal performance can be expected over the operational
+temperature range. This operational temperature range is for ground testing and short-term operation on
+mission; otherwise, the average baseplate temperature must be maintained within the Mission Long-Term
+temperature min/max.
+Table 5 – Thermal Environment Constraints
+Thermal
+
+Min
+
+Max
+
+Operational
+
+-15 °C
+
+60 °C
+
+Non-Operational
+
+-30 °C
+
+70 °C
+
+10 °C
+
+40 °C
+
+Mission Long-Term Average
+Baseplate Temperature
+
+5.5 Electrical Constraints
+The recommended operational bus voltage range is 24 – 38 VDC. For bus voltages outside this range an
+internal under/over voltage protection will disable the drive circuitry within the RWA. The under voltage trip
+point is 19V and the over voltage trip point is 42V. The under voltage or over voltage fault must be cleared to
+reenable the drive circuitry.
+
+Table 6 – RWA Bus Voltage Limit Summary
+Do Not Exceed
+
+Safe to Operate
+
+Lower Limit
+
+Lower Limit
+
+21V
+
+24V
+
+Nominal
+28V
+
+Safe to Operate
+
+Do Not Exceed
+
+Upper Limit
+
+Upper Limit
+
+38V
+
+40V
+
+The RWA will meet published specs if operated within the safe to operate limits above. It is not recommended
+the RWA operate between the safe-to-operate limits and do-not-exceed limits. No immediate damage will
+occur however long-term operation in this region may reduce the RWA mission life and result in excessive RWA
+component heating.
+If the overvoltage condition persists for longer than 252μs, an overvoltage fault will be asserted, and the motor
+will be disabled. Continued exposure to high voltage may result in damage to the hardware.
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+13
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+5.6 Health and Safety Fault Thresholds
+The RWA continuously monitors critical operational parameters to aid in detecting potential damaging
+conditions that may impact normal operation. Monitoring is done in real time and does not require spacecraft
+intervention. Upon detecting potentially harmful conditions, the RWA disables the motor drivers and flags the
+offending fault condition in the Health and Status telemetry frame. Over current is monitored on Phase B and
+Phase C only. Below are the fault thresholds for each monitored fault condition.
+
+Table 7 – RWA Fault Thresholds
+Fault Condition
+
+Fault Threshold
+
+H&S Word
+
+H&S Bit
+
+Over Current
+
+9.76A Pk
+
+DAT[5]
+
+b[0]
+
+Bus Over Voltage
+
+42V [±3.3%]
+
+DAT[5]
+
+b[1]
+
+Bus Under Voltage
+
+19V [±5.0%]
+
+DAT[5]
+
+b[2]
+
+Angular Position
+
+>5.6 deg step
+
+DAT[5]
+
+b[5]
+
+Wheel Over Speed
+
+4200RPM
+
+DAT[5]
+
+b[7]
+
+[EOL tolerance]
+
+5.7 Mechanical
+The RWA was designed to withstand exposure to the environments specified below. To prevent injury to test
+personnel and/or damage to the RWA, RWA should be securely bolted to a stationary fixture or the satellite
+whenever the rotor is spinning. Only high strength bolts of grade 5 or higher should be used to bolt the RWA
+down. The engagement length of the bolt should be adequate to ensure a minimum thread engagement of
+1.5x the diameter.
+
+5.8 Bearing Drag Telemetry Constraints
+The RWA provides the reaction torque that was commanded. It accomplishes this by adjusting the real angular
+acceleration against an internal profile to achieve the commanded torque. The bearing drag telemetry has
+shared input parameters but is otherwise independent from the internal control loop. The bearing drag
+telemetry is only provided as a method for qualitative performance monitoring over different operational
+conditions as well as mission lifetime. It should only be used to compare values reported from the same RW
+under the same conditions (speed, temperature) over time. It should never be used to adjust the commanded
+torque.
+The bearing drag telemetry is based on the nominal value of the motor torque constant. When operating the
+motor at a constant speed, it represents the torque (motor current * motor torque constant) required to
+maintain that speed. However, this drag telemetry will include all drag parameters that influence maintaining a
+constant motor speed. These include variations in motor torque constant, actual bearing drag, and any
+parasitic/eddy currents in the motor driver circuit that do not produce torque. The bearing drag telemetry is
+not valid during acceleration or when operating outside controller design limits (low voltage, etc.).
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+14
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+5.9 Handling and Storage
+The RWA is flight grade hardware and should be treated as such and stored/handled in a class 100 (ISO 5) or
+better cleanroom environment until such time it is commissioned for use
+For long term storage, it is recommended that the RWA be stored with the spin axis horizontal with protective
+covers over the external connector. The recommended storage length is no more than two years. Reevacuation may be necessary after extended period of storage and can be quoted by Honeywell.
+Over time, run-in channeling tracks are established within the spin bearings, which provide a continuous oil
+supply during operation. These established grease channels are effectively settled during operation but can be
+disrupted due to short term and long-term environmental influences. Short term influences include unit
+handling or vibration in which the induced forces deform the channel walls. Long term influences include
+storage at 1g-force for periods of as little as a few weeks or longer, which will deform or slump the grease
+structure. The increased drag resulting from this short term and long-term environmental exposures will
+require additional run-in time to reestablish the grease channels and reduce the wheel drag.
+Although run-in may be required to lower the RW drag torque, this benign condition should be temporary, and
+the user may continue to use the RW as normal.
+Honeywell recommends run-in for RWs following delivery, vibration, or extended storage periods. During the
+run-in period, bearing channeling is slowly reestablished and the RWA will show a steady progression of torque
+loss (bearing drag) improvement with time and is considered complete when normal torque loss levels and
+power consumption levels are reestablished. The recommended run-in is at ambient temperature, +/- 3600
+RPM’s, for 12 hours in each direction. After each run-in cycle, the RWA should be checked for acceptable
+power consumption and bearing drag levels. If the desired levels have not been achieved, the run-in procedure
+should be repeated. If the desired levels cannot be reestablished after 120 run-in hours, contact Honeywell.
+
+5.10 Packaging
+The following packaging process will be utilized prior to shipment:
+1.
+
+Securely install dust cover and Kapton tape over the connector
+
+2.
+
+Place RWA in an ESD shielding, water vapor proof MIL-B-81705 bag
+
+3.
+
+Backfill with dry nitrogen to remove moisture and heat seal the bag
+
+4.
+
+Place the RWA into another ESD shielding, water-vapor proof bag with three, eight-unit desiccants
+(MIL-D-3464, type II) and a humidity indicator (MIL-I-8835)
+
+5.
+
+Backfill with dry nitrogen to remove moisture and heat seal the bag
+
+Following this procedure, the bagged RWA can be inserted into an appropriately padded shipping
+container, with legible labels and warning stickers.
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+15
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+6 Mechanical
+6.1 Overall Form Factor
+When initially at rest and commanded with a positive torque command or a positive speed command, the RW’s
+internal inertia rotor will start spinning in the counterclockwise direction, as viewed from the top of the RWA.
+
+Figure 3 – Frame of Reference Definition
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+16
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Figure 4 – HC11 Form Factor
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+17
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+6.2 Characteristics
+The mechanical characteristics of the RWA are show in the table below.
+Table 8 – RWA Mechanical Characteristics
+RWA Envelope Dimensions
+
+304 mm D x 116 mm H
+
+Housing Material
+
+Aluminum 6061
+
+Mounting Locations
+
+8
+
+Number of Contact Areas
+
+1
+
+Contact Area (cm2)
+
+158
+
+Roughness of Contact Area (microns RMS)
+
+63 max
+
+Eigen frequency (1st Natural Frequency, Hz)
+
+140
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+18
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+6.3 Center of Gravity Location
+The nominal location of the center of gravity is shown below.
+Table 9 – RWA Mechanical Characteristics
+CG location about center of mounting plane
+(+/- 1mm)
+X
+
+Y
+
+Z
+
+-0.194 mm
+
+0 mm
+
+52.146 mm
+
+6.4 Mass and Inertia properties
+The nominal mass of the unit is 7.58 kg. The maximum mass is 7.79 kg.
+The nominal inertia values about the center of gravity.
+Table 10 – Inertia Locations
+Inertia about center of gravity
+± 10%
+X
+
+Y
+
+Z
+
+0.048 Nms2
+
+0.048 Nms2
+
+0.088 Nms2
+
+6.5 Thermal properties
+The RWA measures PBA temperature by way of a precision platinum RTD sensor mounted on the PBA surface.
+The sensor is sampled every 15.8μs at 12bit resolution, has a rated temperature range of -55 to +175 DegC with
+a tolerance rating of +/- 0.55 K @ 50 DegC. The temperature is reported via telemetry as a 32bit single
+precision floating point value in DegC.
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+19
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+7 Connector Detail
+The satellite connects to the RWA via the downstream 31-conductor receptacle. The RWA connector type is
+socket; therefore, the upstream connector type must be plug. Connector technical design information is
+described below.
+To the greatest extent possible, digital signals have been separated from power signals by a minimum of one
+conductor position. Power and ground signals are located on adjacent pins and separated by a minimum of
+one conductor position.
+The Axon D-click connector mating force is 82 N; during mating, and audible click indicates when the latch
+springs are properly engaged.
+
+7.1 31-Pin Receptacle
+Electrical signals interface to the spacecraft via a single 31-pin, two row, D-click, Micro-D connector
+manufactured by AXON; part number MDH231SxLxxxG5. There are numerous mating options that are
+compatible with this connector; contact Honeywell or AXON for the appropriate connector PN based on
+specific end use requirements and/or configuration.
+Figure 5 below diagrams the connector pin-out looking into the connector from outside the case.
+
+Note: Orientation is looking into the face of the RWA connector
+
+Figure 5 – 31-Pin Receptacle Pin-Out
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+20
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+7.2 Connector Pin-Out
+Table 11 – 31-Pin Conductor designations for RS422
+Pin
+1
+
+Signal Name
+VBUS
+
+Type
+Power
+
+Description
+Bus Input
+
+2
+
+VBUS
+
+Power
+
+Bus Input
+
+3
+
+VBUS
+
+Power
+
+Bus Input
+
+4
+
+REMOVED
+
+-
+
+Contact removed
+
+5
+
+VBUS-RTN
+
+Ground
+
+Bus Return
+
+6
+
+VBUS-RTN
+
+Ground
+
+Bus Return
+
+7
+
+VBUS-RTN
+
+Ground
+
+Bus Return
+
+8
+
+REMOVED
+
+-
+
+Contact removed
+
+9
+
+PGND
+
+Ground
+
+Power Ground (for DTI interface, test use only)
+
+10
+
+ISO-GND
+
+Signal
+
+Isolated Ground (for comm interfaces)
+
+11
+
+COMM-PRI-2L
+
+Signal
+
+RS422: Primary Inverted Output
+
+12
+
+COMM-PRI-1L
+
+Signal
+
+RS422: Primary Inverted Input
+
+13
+
+DTI-TLM-DAT
+
+Signal
+
+DTI Telemetry Data (Test use only)
+
+14
+
+DTI-CMD-DAT
+
+Signal
+
+DTI Command Data (Test use only)
+
+15
+
+COMM-SEC-2L
+
+Signal
+
+RS422: Secondary Inverted Output
+
+16
+
+COMM-SEC-1L
+
+Signal
+
+RS422: Secondary Inverted Input
+
+17
+
+VBUS
+
+Power
+
+Bus Input
+
+18
+
+VBUS
+
+Power
+
+Bus Input
+
+19
+
+VBUS
+
+Power
+
+Bus Input
+
+20
+
+REMOVED
+
+-
+
+Contact removed
+
+21
+
+VBUS-RTN
+
+Ground
+
+Bus Return
+
+22
+
+VBUS-RTN
+
+Ground
+
+Bus Return
+
+23
+
+VBUS-RTN
+
+Ground
+
+Bus Return
+
+24
+
+REMOVED
+
+-
+
+Contact removed
+
+25
+
+REMOVED
+
+-
+
+Contact removed
+
+26
+
+COMM-PRI-2H
+
+Signal
+
+RS422: Primary Noninverted Output
+
+27
+
+COMM-PRI-1H
+
+Signal
+
+RS422: Primary Noninverted Input
+
+28
+
+DTI-TLM-CLK
+
+Signal
+
+DTI Telemetry Clock (Test use only)
+
+29
+
+DTI-CMD-CLK
+
+Signal
+
+DTI Command Clock (Test use only)
+
+30
+
+COMM-SEC-2H
+
+Signal
+
+RS422: Secondary Noninverted Output
+
+31
+
+COMM-SEC-1H
+
+Signal
+
+RS422: Secondary Noninverted Input
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+21
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Table 12 – 31-Pin Conductor designations for RS485
+Pin
+1
+
+Signal Name
+VBUS
+
+Type
+Power
+
+Description
+Bus Input
+
+2
+
+VBUS
+
+Power
+
+Bus Input
+
+3
+
+VBUS
+
+Power
+
+Bus Input
+
+4
+
+REMOVED
+
+-
+
+Contact removed
+
+5
+
+VBUS-RTN
+
+Ground
+
+Bus Return
+
+6
+
+VBUS-RTN
+
+Ground
+
+Bus Return
+
+7
+
+VBUS-RTN
+
+Ground
+
+Bus Return
+
+8
+
+REMOVED
+
+-
+
+Contact removed
+
+9
+
+PGND
+
+Ground
+
+Power Ground (for DTI interface, test use only)
+
+10
+
+ISO-GND
+
+Signal
+
+Isolated Ground (for comm interfaces)
+
+11
+
+COMM-PRI-2L
+
+Signal
+
+RS485: Primary Inverted I/O (internally tied to Pin 12)
+
+12
+
+COMM-PRI-1L
+
+Signal
+
+RS485: Primary Inverted I/O (internally tied to Pin 11)
+
+13
+
+DTI-TLM-DAT
+
+Signal
+
+DTI Telemetry Data (Test use only)
+
+14
+
+DTI-CMD-DAT
+
+Signal
+
+DTI Command Data (Test use only)
+
+15
+
+COMM-SEC-2L
+
+Signal
+
+RS485: Secondary Inverted I/O (internally tied to Pin 16)
+
+16
+
+COMM-SEC-1L
+
+Signal
+
+RS485: Secondary Inverted I/O (internally tied to Pin 15)
+
+17
+
+VBUS
+
+Power
+
+Bus Input
+
+18
+
+VBUS
+
+Power
+
+Bus Input
+
+19
+
+VBUS
+
+Power
+
+Bus Input
+
+20
+
+REMOVED
+
+-
+
+Contact removed
+
+21
+
+VBUS-RTN
+
+Ground
+
+Bus Return
+
+22
+
+VBUS-RTN
+
+Ground
+
+Bus Return
+
+23
+
+VBUS-RTN
+
+Ground
+
+Bus Return
+
+24
+
+REMOVED
+
+-
+
+Contact removed
+
+25
+
+REMOVED
+
+-
+
+Contact removed
+
+26
+
+COMM-PRI-2H
+
+Signal
+
+RS485: Primary Noninverted I/O (internally tied to Pin 27)
+
+27
+
+COMM-PRI-1H
+
+Signal
+
+RS485: Primary Noninverted I/O (internally tied to Pin 26)
+
+28
+
+DTI-TLM-CLK
+
+Signal
+
+DTI Telemetry Clock (Test use only)
+
+29
+
+DTI-CMD-CLK
+
+Signal
+
+DTI Command Clock (Test use only)
+
+30
+
+COMM-SEC-2H
+
+Signal
+
+RS485: Secondary Noninverted I/O (internally tied to Pin 31)
+
+31
+
+COMM-SEC-1H
+
+Signal
+
+RS485: Secondary Noninverted I/O (internally tied to Pin 30)
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+22
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+8 Electrical
+The RWA electronics are fully contained within the RWA housing and reside adjacent to the BLDC motor and
+inertia flywheel. The RWA interfaces to the spacecraft via a single 31-pin AXON connector which contains both
+power and communication signals. The communication interface has been designed to be flexible, fully
+redundant, and support reliable high bandwidth digital IO. The RWA motor is driven using Field Oriented
+Control (FOC) and Pulse Width Modulation (PWM) techniques.
+
+8.1 Simplified Block Diagram
+A high level block diagram of the electronics and motor assembly are shown in the figure below
+
+Figure 6 – Simplified Block Diagram
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+23
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+8.2 Simplified Motor Control Loop
+The HC RWA controller is designed to produce a reaction torque on the vehicle. Refer to the figure below for
+the diagram. The user commands a reaction torque, which is limited to 300 mNm. The controller directly
+routes the commanded torque to the torque/current loop which reacts as a first order system with a
+bandwidth (f) of 200Hz. A friction compensation loop provides additional torque to overcome drag and other
+losses up to 50 mNm for a maximum motor torque of 350 mNm.
+Note that commanded torque is equal to net reaction torque at the unit mounting surface due to the internal
+friction compensation loop (e.g., 150 mNm torque command results in 150 mNm net reaction torque on the
+vehicle).
+
+Figure 7 – Simplified Motor Control Loop Diagram
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+24
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+8.3 RS422/RS485 Interface Diagram
+The RWA has two RS422/RS485 interfaces for external communication (primary and secondary). Each pair is
+DC-Coupled and AC-Filtered with shunt capacitors as shown in the diagram below. All communication signals
+are referenced to ISO-GND which is internally connected at a single point to chassis ground. Not shown is the
+digital isolation IC located between the FPGA and driver/receiver IC’s.
+
+Figure 8 – RS422 Electrical Interface Diagram
+
+Figure 9 – RS485 Electrical Interface Diagram
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+25
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+8.4 Power Overview
+Power flows between the spacecraft and RWA via the 31pin connector. The table below lists expected power
+consumption (and generation) over the speed range for various torque commands. Power consumption is
+represented by positive values while power returned to the spacecraft bus is represented by negative values.
+Note: There is no built-in command to power cycle the RWA. Power cycling can only be achieved by toggling
+the power input bus voltage off/on.
+
+Table 13 – Power Consumption Table
+[Table Pending Update]
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+26
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+8.5 In-Rush Current
+See figures below for nominal and worst case in-rush. Honeywell recommends the bus ramp rate stay below
+117V/ms with around 78V/ms being the nominal target in operation.
+
+I2*t & I*t
+Nominal Case
+(28V, 78V/ms ramp)
+0.12
+
+25
+
+21.72
+
+20
+
+0.08
+
+15
+I^2*t
+
+0.06
+
+10
+
+I*t
+I
+
+0.04
+
+A
+
+A^2*s or A*s
+
+0.11
+0.1
+
+5
+
+0.02
+
+0
+0.0068
+
+0
+0
+
+100
+
+200
+
+300
+
+400
+
+500
+
+600
+
+700
+
+800
+
+-5
+900
+
+time (us)
+
+I2*t & I*t
+Worst Case
+(38V, 117V/ms ramp)
+0.25
+
+40
+29.79
+
+0.21
+
+0.15
+
+30
+
+20
+
+I^2*t
+I*t
+I
+
+0.1
+
+A
+
+A^2*s or A*s
+
+0.2
+
+10
+
+0.05
+
+0
+0.0090
+
+0
+
+0
+
+100
+
+200
+
+300
+
+400
+
+500
+
+600
+
+700
+
+800
+
+-10
+
+900
+
+time (us)
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+27
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Figure 10 – Nominal and Worst Case In-Rush
+
+8.6 Grounding Scheme
+There are three grounds in the system: Power ground, chassis ground, and isolated ground (ISO-GND). Power
+and all motor circuitry are referenced to power ground. Communication signals are referenced to ISO-GND
+which is available at the external J1 connector. ISO-GND and chassis ground have a single point connection
+internal to the RWA. Refer to Figure 11 below for a diagram of the HC-series grounding scheme.
+
+HC Gen2 PBA
+ISO-
+
+Power
+PBA Power
+(1.5V/3.3V/6V/13V)
+
+PGND
+
+Control
+Logic
+
+External Spacecraft
+Communication Busses are
+referenced to CHASSIS GROUND
+
+PBA Power
+(1.5V/3.3V/6V/13V)
+
+PGND
+
+Chassis
+
+Motor
+Drivers
+PGND
+
+EMI
+FILTER
+(HI-SIDE)
+
+Spacecraft Power
+Source & Return
+Are isolated from
+CHASSIS GROUND
+
+Non-Isolated Secondary
+Power Supply
+
+PBA Power
+(1.5V/3.3V/6V/13V)
+
+EMI
+FILTER
+(Lo-Side)
+
+RC Filter Network
+NO DC PATH
+
+Chassis
+
+PGND
+
+PGND
+
+Figure 11 – Grounding Scheme Diagram
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+28
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+8.7 Reserved
+
+8.8 Return Current
+The RWA can and will act as both a generator and motor. Depending on the state of operation, the RWA will
+consume or source current to the spacecraft power bus.
+The following operational modes must be considered
+•
+
+•
+
+The input bus must not be shorted (low impedance) while the wheel is spinning
+o
+
+High current may flow due to BEMF
+
+o
+
+Possible damage to RWA
+
+The RWA electronics may remain energized even when external power is removed (open) due to BEMF
+generated by the wheel
+
+•
+
+o
+
+The wheel speed should be zero when cycling RWA power
+
+o
+
+If wheel speed is not zero, reset of electronics will be delayed
+
+Deceleration of the wheel may raise the bus voltage if the source impedance is too high
+o
+
+•
+
+Overvoltage trip may occur
+
+Acceleration of the wheel may lower the bus voltage if the source impedance is too high
+o
+
+Undervoltage trip may occur
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+29
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+9 Communications API
+The RWA communication interface to the spacecraft is through a single 31pin connector (refer to Section 7.2).
+In addition to serving as the communication interface, the connector also provides the input power and return
+path to/from the RWA/Spacecraft.
+The communication scheme is based on a serial standard. The serial interface is a balanced data transmission
+scheme which offers a robust, high speed solution optimized for long distance transmission in a point-to-point
+noisy environment.
+The RWA consists of two physically independent communication channels for each data transmission direction;
+receive and transmit (Rx/Tx). The primary is defined as “A” while the secondary “B”. The spacecraft can switch
+between the primary and secondary channels at any time. Refer to Figure 12 below for a general overview of
+the signal chain.
+Note: All digital ICs involved in the communication chain are powered via an isolated supply and are
+referenced to ISO-GND which is available as a dedicated pin on the 31-pin connector (preferred) or can be
+referenced to chassis ground.
+
+Figure 12 – Communication Signal Flow Diagram
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+30
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+It is important to note that the RWA strictly adheres to a Master-Slave arrangement where the Master is
+defined as the Spacecraft and the slave as the RWA. Therefore, all communication must be initiated by the
+spacecraft without exception. All messaging will follow the same general flow as shown in Figure 13 below.
+
+Figure 13 – Message Flow Diagram
+
+The physical layer is realized by several discrete components as diagramed in Figure 13 above. As noted
+earlier, the physical layer ICs are all powered by an isolated voltage rail. The digital IO signals are isolated by a
+high-speed digital IC. The protocol layer is handled by the FPGA which is partitioned into two separate cores;
+the primary core is dedicated to motor control while the secondary core is reserved for communication.
+The communication protocol commonly referred to as the link-layer is defined in this context as the electrical
+connection between the Spacecraft and each RWA that is mounted to and electrically connected with the
+Spacecraft. The messaging format, timing and constraints are detailed below.
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+31
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+9.1 Message Types
+The RWA messages are grouped into two main categories: Commands and Telemetry. The command messages
+are further split into sub-categories; primary, secondary, memory, and engineering.
+Note: All engineering commands are included in the flight release but are disabled before flight.
+As shown above, the message content, format and return value are different between commands and
+telemetry. The exact format for each will be detailed below along with timing, constraints, addresses etc.
+An overview of all messages currently supported are shown in Figure 14 below.
+
+Figure 14 – Message Tree
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+32
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+9.2 Message Format, Timing and Addressing
+This section provides information on format, timing, and other relevant parameters that are necessary and
+preliminary to more detailed information to follow.
+
+Format
+In this context, a word is defined as one start bit, 8 data bits, one parity bit, and one stop bit as shown below in
+Figure 15. Where the start bit is defined as active low, stop bit active high, and the parity bit is even. The
+standard bit rate is customer specific between 9600 bit/s to 125k bit/s.
+
+Figure 15 – Word Definition
+
+Both the command and telemetry message frames are constructed using the above word definition as follows.
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+33
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+The command message consists of an address word, OpCode word, payload word(s) (may be zero length)
+always ending in a CRC word. The CRC is calculated as a bitwise XOR of each bit contained in the message.
+Upon receipt of any command from the spacecraft, a status word is returned by the RWA that serves as an
+acknowledgement.
+The command message follows the format detailed below:
+Note: Bit positions within the tables as bx, where bo is the lsb.
+Words are transmitted Word[0], Word[1] … Word[n-1], Word[n].
+32bit FP values are transmitted big-endian and have been noted in the frame definitions.
+All other multi-byte values are transmitted little-endian.
+
+Figure 16 – Command Message Format
+Where:
+ADR[0-7]
+
+8bit address of the RWA
+
+OC[0-7] Command OpCode
+DAT[0-7]
+
+Payload data. May be multiple words. May be zero words. Message dependent
+
+CRC[0-7] 8bit CRC value
+STS[0-7] 8bit status word returned by the RWA
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+34
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+In the context of RWA comm messaging, a frame shall be defined as the contiguous collection of one or more
+words that comprise a command or telemetry message.
+The telemetry message follows the format detailed below:
+
+Figure 17 – Telemetry Message Format
+Where:
+ADR[0-7]
+
+8bit address of the RWA
+
+OC[0-7] Telemetry OpCode
+DAT[0-7]
+
+Payload data. May be multiple words. May be zero words. Message dependent
+
+CRC[0-7] 8bit CRC value
+STS[0-7] 8bit status word returned buy the RWA (see below)
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+35
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+The status word will be the first word returned by the RWA after receipt of a command or telemetry message.
+In the case of a command message, it will be the ONLY response. In the case of a telemetry message, the RWA
+will likely respond with status and payload data depending on the exact telemetry frame.
+The status word content and format are shown below:
+
+Figure 18 – Status Word Content
+Where:
+b[0]
+
+Start bit
+
+b[1]
+
+Reserved
+
+b[2-6]
+
+Last command OpCode echo back
+
+b[7]
+
+Fault status
+0 = No Fault
+1 = Fault status has been flagged. Details about fault contained in the Health & Status
+message
+
+b[8]
+
+Current operation mode
+0 = operate mode
+1 = standby mode
+
+b[9]
+
+Parity bit - even
+
+b[10]
+
+Stop bit
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+36
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Timing
+Back-to-back command messages, to the same RWA, must be spaced at least 5ms apart. Similarly, back-toback telemetry messages, must be spaced such that the preceding telemetry message must have been
+processed and payload data sent before the next telemetry request is issued.
+For multi-word messages, no time gaps are allowed between the stop bit of the previous word and the start bit
+of the following word.
+
+Addressing
+The RWA is shipped from the factory with default address 0x04. The RWA address is configurable at any time
+by the spacecraft or manufacturing software.
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+37
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+9.3 Command Messages
+This section provides a detailed explanation of each command message supported by the RWA.
+It is intended to serve as the RWA programmers guide.
+
+Motor Control
+Summary
+
+This command enables/disables the motor
+
+OpCode
+
+0x00
+
+Applicability
+
+While in operate mode only
+
+Frame Length
+
+11 words
+
+Message Frame
+Where:
+ADR0
+OC0
+DAT[0]
+
+Return Word(s)
+
+DAT[1-7]
+
+RWA Address
+Command OpCode
+b[0]
+0=disable, 1=enable
+b[1-7]
+Unused - reserved
+Unused - reserved
+
+CRC0
+
+Checksum per definition above
+
+1 status word per definition above
+
+Example
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+38
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Mode Control
+Summary
+
+This command transitions the RWA from Standby to Operate mode.
+Note: Motor will be enabled upon entering operate mode
+
+OpCode
+
+0x0E
+
+Applicability
+
+While in standby mode only
+
+Frame Length
+
+3 words
+
+Message Frame
+Where:
+ADR0
+OC0
+CRC0
+Return Word(s)
+
+RWA Address
+Command OpCode
+No Payload for this command
+Checksum per definition above
+
+1 status word per definition above
+
+Example
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+39
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Speed/Torque Timeout Monitor
+Summary
+
+This command enables/disables the speed/torque timeout monitor feature. If enabled,
+the timeout routine monitors the elapsed time between successive speed/torque
+commands. If the elapsed time exceeds 110ms the timeout flag will be asserted, and the
+current speed will be maintained until the next speed/torque command. The flag will
+remain asserted until explicitly cleared by the spacecraft.
+
+OpCode
+
+0x02
+
+Applicability
+
+While in operate mode only
+
+Frame Length
+
+4 words
+
+Message Frame
+Where:
+ADR0
+OC0
+DAT0
+CRC0
+Return Word(s)
+
+RWA Address
+Command OpCode
+b[0]
+0=timeout disabled, 1=timeout enabled
+b[1-7]
+Unused - reserved
+Checksum per definition above
+
+1 status word per definition above
+
+Example
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+40
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Reset Control
+Summary
+
+This command resets the RWA, disables the motor, and places the RWA in standby mode.
+After reset, it can take up to 1s to complete a reboot before communications can resume.
+Note: If the motor is spinning it will coast down until the mode is again set to operate.
+Once in operate mode, the current speed will be held.
+
+OpCode
+
+0x03
+
+Applicability
+
+While in operate mode only
+
+Frame Length
+
+4 words
+
+Message Frame
+
+Return Word(s)
+
+Where:
+ADR0
+OC0
+DAT0
+
+RWA Address
+Command OpCode
+Must be 0x5D. Otherwise command is ignored
+
+CRC0
+
+Checksum per definition above
+
+1 status word per definition above
+
+Example
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+41
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Torque and Speed Control
+Summary
+
+This command sets the operating speed or torque depending on command type specified
+in word DAT0.
+Note: Either speed or torque can be commanded -not both.
+
+OpCode
+
+0x04
+
+Applicability
+
+While in operate mode only
+
+Frame Length
+
+8 words
+
+Message Frame
+Where:
+ADR0
+OC0
+DAT[0]
+DAT[1-4]
+CRC0
+Return Word(s)
+
+RWA Address
+Command OpCode
+b[0]
+0=torque mode, 1=speed mode
+b[1-7]
+Unused, reserved
+32bit FP value Torque/Speed value. Big endian.
+Units: Nm/RPM
+Checksum per definition above
+
+1 status word per definition above
+
+Example
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+42
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Clear Faults
+Summary
+
+This command clears the fault flags in the Health & Status message. This is the only
+command that will clear a fault that resulted in disabling the motor. Faults must be
+cleared before the motor can be re-enabled. An example of faults that must be cleared
+are; overcurrent, overvoltage, undervoltage etc.
+
+OpCode
+
+0x05
+
+Applicability
+
+While in operate mode only
+
+Frame Length
+
+5 words
+
+Message Frame
+Where:
+ADR0
+RWA Address
+OC0
+Command OpCode
+DAT[0-1]
+16bit Int value. Writing 65535 clears all bits. Writing a ‘1’
+to any bit position clears the flag associated with that
+position
+CRC0
+Return Word(s)
+
+Checksum per definition above
+
+1 status word per definition above
+
+Example
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+43
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Change RWA Address
+Summary
+
+This command writes the specified address to RWA MRAM. Note that this command will
+only be accepted while RWA is in “standby” mode. After issuing a new address, the RWA
+must be reset for the new address to take effect. Resetting the RWA can be accomplished
+in one of two ways: 1) cycling power to the RWA or 2) put the RWA in “normal” mode
+(must issue command using the previous address) and then sending the reset command
+(0x03) also using the previous address. Once the RWA returns from reset, the new address
+will be in effect and will remain unchanged unless and until a new RWA change address
+command is issued.
+
+OpCode
+
+0x0C
+
+Applicability
+
+While in standby mode only
+
+Frame Length
+
+35 words
+
+Message Frame
+Where:
+ADR0
+OC0
+DAT[0]
+DAT[1]
+DAT[2]
+DAT[3]
+DAT[4]
+
+RWA Address (previous address)
+Command OpCode
+0xFC. MRAM address LSB
+0xFF
+MRAM address
+0xFF
+MRAM address MSB
+0x04
+Num of Bytes. Must be 0x04
+8bit Int value representing the new RWA address. Only the
+lower 5 bits are used allowing for 32 possible addresses.
+DAT[5-31]
+8bit Int values. Should be 0x00.
+CRC0
+Return Word(s)
+
+Checksum per definition above
+
+1 status word per definition above
+
+Example
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+44
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+9.4 Telemetry Messages
+This section provides a detailed explanation of each telemetry message returned by the RWA. It is intended to
+serve as the RWA programmers guide.
+
+Primary Telemetry
+Summary
+
+This telemetry type returns key operational parameters of the RWA.
+
+OpCode
+
+0x14
+
+Applicability
+
+While in operate mode only
+
+Frame Length
+
+2 words
+
+Message Frame
+Where:
+ADR0
+OC0
+Return Frame
+
+RWA Address
+Command OpCode
+
+11 words
+
+Telemetry Frame
+Where:
+STS0
+DAT[0]
+
+Status word per definition above
+b[0]
+Motor State: 0=disabled. 1=enabled
+b[1-2]
+Control mode: 0=Torque. 1=Speed
+b[3]
+Fault Flag. Cleared after every read
+b[4]
+Timeout Flag. Refer to Section 9.3 above
+b[5]
+Timeout State. 0=disabled. 1=enabled
+b[6-7]
+Unused - reserved
+DAT[1-4]
+32bit FP value for drag torque in Nm. Big endian
+Difference between spacecraft commanded torque and
+value required to meet commanded torque
+DAT[5-8]
+32bit FP value for speed in RPM. Big endian
+CRC0
+Checksum per definition above
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+torque
+
+45
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Health and Status Telemetry
+Summary
+
+The RWA continuously monitors critical operational parameters to aid in detecting
+potential damaging conditions that may impact normal operation. Monitoring is done in
+real time and does not require spacecraft intervention. Upon detecting potentially
+harmful conditions, the RWA shuts down various hardware elements (motor for example)
+as appropriate and flags the offending fault condition in the Health and Status telemetry
+frame.
+Note: These fault conditions are not self-clearing and require the spacecraft to clear the
+flag and cycle the motor-enable command to re-enable the motor.
+The spacecraft can retrieve the H&S telemetry frame at any time. The fault thresholds can
+be found in Section 5.6.
+
+OpCode
+
+0x15
+
+Applicability
+
+While in operate mode only
+
+Frame Length
+
+2 words
+
+Message Frame
+Where:
+ADR0
+OC0
+Return Frame
+
+RWA Address
+Command OpCode
+
+21 words
+
+Telemetry Frame
+Where:
+STS0
+DAT[0]
+DAT[1-3]
+DAT[4]
+DAT[5]
+
+DAT[6]
+
+DAT[7-10]
+DAT[11-14]
+DAT[15-18]
+CRC0
+
+Status word per definition above
+Last command processed by the RWA
+Unused - reserved
+b[0]
+MRAM State. 0=disabled. 1=enabled
+b[1-7]
+Unused - reserved
+b[0]
+Over-current error flag
+b[1]
+Bus over-voltage error flag
+b[2]
+Bus under-voltage error flag
+b[3]
+Unused - reserved
+b[4]
+Unused - reserved
+b[5]
+Angular Position
+b[6]
+Unused - reserved
+b[7]
+Wheel over-speed error flag
+b[0]
+Unused - reserved
+b[1]
+Unused - reserved
+b[2]
+Unused - reserved
+b[3-7]
+Unused - reserved
+32bit FP value for bus voltage in V. Big endian
+32bit FP value for bus current in A. Big endian
+32bit FP value for board temperature in DegC. Big endian
+Checksum per definition above
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+46
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+47
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+10 Security Manual
+Honeywell Product Security: We take security concerns seriously and work to quickly evaluate and address them. Once
+reported, we commit the appropriate resources to analyze, validate and provide corrective actions to address the issue.
+Honeywell Security Policy Reference: https://www.honeywell.com/us/en/product-security
+Incident Reporting: To report a suspected security vulnerability or device behavior suspected to be related to device security
+please notify Honeywell by following instructions at the following website: https://www.honeywell.com/us/en/productsecurity#vulnerability-reporting
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+48
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+End of Document
+
+Use or disclosure of data contained on this sheet is subject to the restrictions on the disclaimer page
+of this document.
+ECCN – 9E515.a (5504.2.c)
+
+49
+
+Downloaded By: Schubert, Brad - 01 Apr 2025 12:11:11 UTC - TEC: 9E515.a
+The export classifications (HEC/TEC) in this watermark supersede any other classification. Document is restricted per applicable export laws. Protected under FOIA Exemption 4 and the Trade Secrets Act.
+
+HC11 INTERFACE CONTROL DOCUMENT – ICD64020011 REV -
+
+

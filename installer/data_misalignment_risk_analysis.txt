@@ -1,0 +1,99 @@
+DATA MISALIGNMENT RISK ANALYSIS
+=====================================
+
+Date: 2025-01-17
+Topic: Risk of data being received for wrong measurement in FlatSat Device Simulator
+
+QUESTION:
+The sensors send data as a packet with x, y, and z all together. Since the data from the MATLAB simulator comes in on separate ports, what is the likelihood of data being received for the wrong measurement?
+
+DATA FLOW ANALYSIS
+------------------
+
+Current Architecture:
+MATLAB Simulator → TCP/IP → Device Encoders → Output Transmitters
+
+Data Timing Characteristics:
+1. MATLAB Sender: Sends 8-byte floats every 10ms with precise timing
+2. TCP/IP: Network packets can arrive out of order or with delays
+3. Device Processing: Each device processes data independently
+
+RISK ASSESSMENT: DATA MISALIGNMENT
+-----------------------------------
+
+High Risk Scenarios:
+
+1. Network Packet Reordering:
+   - TCP can deliver packets out of order
+   - If X, Y, Z arrive in different network packets, timing could be off
+   - Likelihood: Medium-High (depends on network conditions)
+
+2. Processing Delays:
+   - If one port's data is delayed in processing
+   - Could cause X, Y, Z to be from different time periods
+   - Likelihood: Medium (depends on system load)
+
+3. Buffer Overflow:
+   - If one port's buffer fills up faster
+   - Could cause data to be dropped or delayed
+   - Likelihood: Low-Medium (depends on data rates)
+
+CURRENT MITIGATION (What We Have):
+----------------------------------
+
+1. Sequential Port Processing: Each device processes its ports in order
+2. Timing Validation: We check for 10ms intervals between data
+3. Data Validation: We validate float values (NaN, infinity checks)
+
+MISSING MITIGATION (What We Need):
+----------------------------------
+
+1. Packet Synchronization: No mechanism to ensure X, Y, Z are from same time period
+2. Timestamp Matching: No way to verify data is temporally aligned
+3. Sequence Numbers: No sequence tracking across ports
+
+RECOMMENDATIONS TO REDUCE RISK:
+-------------------------------
+
+Option 1: Add Timestamp Synchronization
+```python
+# Add timestamp to each float when received
+# Only process X, Y, Z if timestamps are within tolerance
+if abs(timestamp_x - timestamp_y) < 0.001 and abs(timestamp_y - timestamp_z) < 0.001:
+    process_data(x, y, z)
+```
+
+Option 2: Add Sequence Numbers
+```python
+# MATLAB sends sequence number with each float
+# Only process if sequence numbers match
+if seq_x == seq_y == seq_z:
+    process_data(x, y, z)
+```
+
+Option 3: Single Packet Approach
+```python
+# MATLAB sends X, Y, Z in single packet (24 bytes)
+# Eliminates port-based misalignment risk
+```
+
+CURRENT RISK LEVEL: MEDIUM-HIGH
+-------------------------------
+
+Why: Without synchronization mechanisms, there's a reasonable chance that X, Y, Z measurements could be from different time periods, especially under network stress or high system load.
+
+Impact: This could cause:
+- Incorrect sensor readings
+- Invalid packet generation
+- Potential test failures
+
+CONCLUSION:
+-----------
+The current architecture has a medium-high risk of data misalignment due to the separate port approach. Implementing one of the recommended mitigation strategies would significantly reduce this risk and improve data integrity.
+
+RECOMMENDED NEXT STEPS:
+-----------------------
+1. Implement timestamp synchronization for all devices
+2. Add sequence number tracking across ports
+3. Consider single-packet approach for critical measurements
+4. Add data integrity validation before packet encoding

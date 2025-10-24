@@ -1,0 +1,51 @@
+{
+  "ars_config": {
+    "ip_address": "0.0.0.0",
+    "start_port": 5000,
+    "num_ports": 12,
+    "description": "ARS Sensor Socket Reader Configuration"
+  },
+  "data_format": {
+    "data_type": "64-bit float",
+    "byte_order": "auto_detect",
+    "bytes_per_value": 8,
+    "update_rate_ms": 10,
+    "description": "8-byte 64-bit float data every 10ms"
+  },
+  "port_mapping": {
+    "0": "ARS Prime X",
+    "1": "ARS Prime Y", 
+    "2": "ARS Prime Z",
+    "3": "ARS Redundant X",
+    "4": "ARS Redundant Y",
+    "5": "ARS Redundant Z",
+    "6": "Summed Incremental Prime X",
+    "7": "Summed Incremental Prime Y",
+    "8": "Summed Incremental Prime Z",
+    "9": "Summed Incremental Redundant X",
+    "10": "Summed Incremental Redundant Y",
+    "11": "Summed Incremental Redundant Z"
+  },
+  "simulation": {
+    "primary_source": "prime",
+    "discrepancy_threshold": 0.1,
+    "temperature_celsius": 25,
+    "status_word_mode": "continuous_bit",
+    "description": "ARS to Rate Sensor simulation settings"
+  },
+  "output": {
+    "display_rate_hz": 10,
+    "log_file": null,
+    "console_output": true,
+    "summary_interval_seconds": 10,
+    "description": "Output and logging configuration"
+  },
+  "monitoring": {
+    "data_timeout_seconds": 5.0,
+    "max_discrepancy_warning": 0.05,
+    "enable_quality_checks": true,
+    "description": "Data quality monitoring settings"
+  }
+}
+
+

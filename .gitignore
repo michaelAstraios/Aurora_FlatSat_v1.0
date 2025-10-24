@@ -1,0 +1,30 @@
+# Log files
+*.log
+packet_logs/*.log
+simulator_console.log
+matlab_console.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Data files that change frequently
+*.dmp
+current_data_capture.txt
+data_capture_*.txt
